@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<ActionSheet title="Choose Your Action" showCancelButton="true"
+		placement="Bottom">
+		<buttons>
+			<Button text="Edit" icon="sap-icon://edit-outside"
+				customData:Action="ED" press="onAsheetEdit" />
+			<Button text="Display" icon="sap-icon://display"
+				customData:Action="DI" press="onAsheetDisplay" />
+			<Button text="Delete" icon="sap-icon://delete"
+				customData:Action="DL" press="onAsheetDelete" visible="false" />
+		</buttons>
+	</ActionSheet>
+</core:FragmentDefinition>

@@ -1,0 +1,129 @@
+<core:View controllerName="com.itec.sams.controller.studentRegistration"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:suite="sap.suite.ui.commons" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:u="sap.ui.unified"
+	xmlns:ux="sap.uxap">
+	<Page class="sapUiSizeCompact" enableScrolling="{device>/isPhone}" showHeader="false">
+		<content>
+			<!-- <l:Grid defaultSpan="L12 M12 S12"> -->
+			<!-- <l:content> -->
+			<Panel expandable="false" expanded="true" class="ResponsiveGridLayout">
+				<content>
+					<Table id="hdr_studentReg_tblId" inset="false" visible="{device>/isNoPhone}"
+						showNoData="false">
+						<headerToolbar>
+							<Toolbar>
+								<ToolbarSpacer />
+								<SearchField width="25%" liveChange="onStdSearch"
+									placeholder="By GR No./Class/Division/Mobile Number" tooltip=" Search by GR No./Class/Division/Mobile Number" />
+								<Button type="Emphasized" text="Excel Upload"
+									press="onUploadBtPress" icon="sap-icon://excel-attachment" visible="{device>/isNoPhone}"/>
+								<Button type="Emphasized" text="Add New Student" press="onAddNewStudent"
+									icon="sap-icon://add-contact" />
+								<Button press="onPreSlot" icon="sap-icon://close-command-field" visible="false"/>
+								<Input id="inp_thrs" value="50" enabled="false" maxLength="3"
+									width="4%" visible="false"/>
+								<Button press="onNextSlot" icon="sap-icon://open-command-field" visible="false"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="GR Number" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Student Name" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Roll Number" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Gender" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Class" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Division" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Date of Birth" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Mobile Number" />
+							</Column>
+							<Column hAlign="Center" minScreenWidth="Tablet"
+								demandPopin="true" width="10%">
+								<ObjectIdentifier title="Action" />
+							</Column>
+							<Column id="colstd_scroll" hAlign="Center" minScreenWidth="Tablet"
+								demandPopin="true" width="1.5%">
+							</Column>
+						</columns>
+					</Table>
+					<ScrollContainer id="scrl_stdTab" vertical="true">
+						<Table id="studentReg_tblId" inset="false" updateFinished="setTableHeight"
+							growing="true" growingScrollToLoad="true">
+							<headerToolbar visible="{device>/isPhone}">
+								<Toolbar visible="{device>/isPhone}">
+									<ToolbarSpacer />
+									<SearchField width="25%" liveChange="onStdSearch" />
+									<Button type="Emphasized" text="Upload Student Data"
+										press="onUploadBtPress" icon="sap-icon://upload" />
+									<Button type="Emphasized" text="Add New Student" press="onAddNewStudent"
+										icon="sap-icon://add-contact" />
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<ObjectIdentifier title="GR Number" visible="{device>/isPhone}" />
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<ObjectIdentifier title="Student Name"
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<ObjectIdentifier title="Roll Number" visible="{device>/isPhone}" />
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<ObjectIdentifier title="Gender" visible="{device>/isPhone}" />
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<ObjectIdentifier title="Class" visible="{device>/isPhone}" />
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<ObjectIdentifier title="Division" visible="{device>/isPhone}" />
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<ObjectIdentifier title="Date of Birth"
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<ObjectIdentifier title="Mobile Number"
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column hAlign="Center" minScreenWidth="Tablet"
+									demandPopin="true" width="10%">
+									<ObjectIdentifier title="Action" visible="{device>/isPhone}" />
+								</Column>
+							</columns>
+						</Table>
+					</ScrollContainer>
+				</content>
+			</Panel>
+			<!-- </l:content> -->
+			<!-- </l:Grid> -->
+		</content>
+		<footer>
+			<Bar id="ftr_stdrPage">
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

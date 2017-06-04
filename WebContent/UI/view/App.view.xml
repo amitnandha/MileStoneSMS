@@ -1,0 +1,64 @@
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m"
+	controllerName="com.itec.sams.controller.App" displayBlock="true"
+	height="100%" xmlns:u="sap.ui.unified" xmlns:tnt="sap.tnt">
+	<tnt:ToolPage id="toolPage" sideExpanded="false">
+		<tnt:header>
+			<tnt:ToolHeader design="Solid">
+				<Button id="sideNavigationToggleButton" icon="sap-icon://menu2"
+					type="Transparent" press="onSideNavButtonPress">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" />
+					</layoutData>
+				</Button>
+				<ToolbarSeparator />
+				<Image src="../img/applogo.png" densityAware="false" width="5rem"
+					height="2.3rem" visible="{device>/isNoPhone}" class="logo">
+					<layoutData>
+						<FlexItemData growFactor="1" />
+					</layoutData>
+				</Image>
+				<ToolbarSpacer />
+				<Title id="pageTitle_titleId" text="Dashboard" titleStyle="H4"
+					titleLevel="H4" />
+				<ToolbarSpacer />
+				<Image src="../img/schoolIcon.png" densityAware="false" width="1.2rem"
+					height="1.2rem" visible="{device>/isNoPhone}" class="logo">
+					<layoutData>
+						<FlexItemData growFactor="1" />
+					</layoutData>
+				</Image>
+				<Title id="schoolName_titleId" text="Demo School" class="pageHeaderTitle"
+					visible="{device>/isNoPhone}" />
+				<Title id="schoolCity_titleId" text="Mumbai" class="pageHeaderSchoolTxt"
+					visible="{device>/isNoPhone}" />
+				<ToolbarSeparator />
+				<Button icon="sap-icon://person-placeholder" text="Administrator"
+					type="Transparent" id="userName_btnId" press="onUserBtnPress">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" />
+					</layoutData>
+				</Button>
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation itemSelect="onItemSelect">
+				<tnt:NavigationList id="mainMenu_navListId"
+					items="{path: 'userMenuModel>/navMenuListItem'}">
+					<tnt:NavigationListItem text="{userMenuModel>menuText}"
+						icon="{userMenuModel>menuIcon}" key="{userMenuModel>menuAction}" />
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList
+						items="{path: 'menuModel>/fixedNavigation',filters: [{path: 'isVisible',operator: 'EQ', value1: true}]}">
+						<tnt:NavigationListItem text="{menuModel>menuText}"
+							icon="{menuModel>menuIcon}" key="{menuModel>menuAction}" />
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<App id="fioriContent" />
+		</tnt:mainContents>
+	</tnt:ToolPage>
+
+</core:View>

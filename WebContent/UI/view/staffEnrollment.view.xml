@@ -1,0 +1,127 @@
+<core:View controllerName="com.itec.sams.controller.staffEnrollment"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page class="sapUiSizeCompact" enableScrolling="{device>/isPhone}"
+		showHeader="false">
+		<content>
+			<Toolbar height="2.5rem" visible="false">
+				<core:Icon src="sap-icon://filter" class="sapUiTinyMarginBegin" />
+				<Title titleStyle="H5" titleLevel="H5" text="Filter" />
+				<ToolbarSpacer />
+				<Button id="filterExpand_btnId" type="Emphasized"
+					icon="sap-icon://navigation-up-arrow" text="Collapse" class="sapUiTinyMarginEnd"
+					press="onFilterExpandPress" iconFirst="false" />
+			</Toolbar>
+			<Panel id="filter_pnlId" expandable="false" expanded="true"
+				visible="false">
+				<content>
+					<l:VerticalLayout class="sapUiResponsiveMargin">
+						<l:content>
+						</l:content>
+					</l:VerticalLayout>
+				</content>
+			</Panel>
+			<Panel width="auto" class="ResponsiveGridLayout">
+				<content>
+					<Table inset="false" id="hdr_schoolStaffMaster_tblId"
+						visible="{device>/isNoPhone}" showNoData="false">
+						<headerToolbar>
+							<Toolbar height="3rem">
+								<ToolbarSpacer />
+								<Button type="Emphasized" icon="sap-icon://create" text="Add Staff"
+									class="sapUiSmallMarginEnd" press="onCreateStaff" />
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="Employee No." />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="First Name" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="Last Name" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Date Of Birth" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Card No." />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Mobile No." />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Email-Id" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Status" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Action" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" width="0.1rem">
+							</Column>
+						</columns>
+					</Table>
+					<ScrollContainer vertical="true">
+						<Table id="schoolStaffMaster_tblId" inset="false" growing="true"
+							growingScrollToLoad="true" updateFinished="setSchoolStaffMasterTableHeight">
+							<headerToolbar>
+								<Toolbar height="3rem" visible="{device>/isPhone}">
+									<ToolbarSpacer />
+									<Button type="Emphasized" icon="sap-icon://create" text="Add Staff"
+										class="sapUiSmallMarginEnd" press="onCreateStaff" />
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Left">
+									<ObjectIdentifier title="Employee No."
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Left">
+									<ObjectIdentifier title="First Name" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Left">
+									<ObjectIdentifier title="Last Name" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Date Of Birth"
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Card No." visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Mobile No." visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Email-Id" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center" popinDisplay="Inline">
+									<ObjectIdentifier title="Status" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center" popinDisplay="Inline">
+									<ObjectIdentifier title="Action" visible="{device>/isPhone}" />
+								</Column>
+							</columns>
+						</Table>
+					</ScrollContainer>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

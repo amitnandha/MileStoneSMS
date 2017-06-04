@@ -1,0 +1,114 @@
+<core:View controllerName="com.itec.sams.controller.cardMaster"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:suite="sap.suite.ui.commons" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:u="sap.ui.unified"
+	xmlns:ux="sap.uxap">
+	<Page class="sapUiSizeCompact" enableScrolling="{device>/isPhone}"
+		showHeader="false">
+		<content>
+			<!-- <l:Grid defaultSpan="L12 M12 S12"> -->
+			<!-- <l:content> -->
+			<Panel expandable="false" expanded="true"
+				class="ResponsiveGridLayout mPanelDesign">
+				<content>
+					<Table id="hdr_cardMaster_tblId" inset="false" delete="onDelete"
+						visible="{device>/isNoPhone}" showNoData="false">
+						<headerToolbar>
+							<Toolbar>
+								<ToolbarSpacer />
+								<SearchField width="25%" liveChange="onCardSearch" />
+								<Button type="Emphasized" text="Excel Upload" press="onExcelCard"
+									icon="sap-icon://excel-attachment" visible="{device>/isNoPhone}" />
+								<Button type="Emphasized" text="Add New Card" press="onRegisterNewCard"
+									icon="sap-icon://business-card" />
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Card Number" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="RF - ID" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Descriptions" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Assigned" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Card Group" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Status" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" width="10%">
+								<ObjectIdentifier title="Edit" />
+							</Column>
+							<!-- <Column minScreenWidth="Tablet" demandPopin="true" width="10%"> -->
+							<!-- <ObjectIdentifier title="Display" /> -->
+							<!-- </Column> -->
+							<Column id="colcm_scroll" minScreenWidth="Tablet"
+								demandPopin="true" width="1.5%">
+							</Column>
+						</columns>
+					</Table>
+					<ScrollContainer id="scrl_cmTab" vertical="true">
+						<Table id="cardMaster_tblId" inset="false" delete="onDelete"
+							updateFinished="setTableHeight" growing="true"
+							growingScrollToLoad="true">
+							<headerToolbar visible="{device>/isPhone}">
+								<Toolbar visible="{device>/isPhone}">
+									<ToolbarSpacer />
+									<SearchField width="25%" liveChange="onCardSearch" />
+									<Button type="Emphasized" text="Excel Upload" press="onExcelCard"
+										icon="sap-icon://excel-attachment" />
+									<Button type="Emphasized" text="Add New Card" press="onRegisterNewCard"
+										icon="sap-icon://business-card" />
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<ObjectIdentifier title="Card Number" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<ObjectIdentifier title="RF - ID" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<ObjectIdentifier title="Descriptions"
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<ObjectIdentifier title="Assigned" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<ObjectIdentifier title="Card Group" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<ObjectIdentifier title="Status" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" width="10%">
+									<ObjectIdentifier title="Edit" visible="{device>/isPhone}" />
+								</Column>
+								<!-- <Column minScreenWidth="Tablet" demandPopin="true" width="10%"> -->
+								<!-- <ObjectIdentifier title="Display" visible="{device>/isPhone}" 
+									/> -->
+								<!-- </Column> -->
+							</columns>
+						</Table>
+					</ScrollContainer>
+				</content>
+			</Panel>
+			<!-- </l:content> -->
+			<!-- </l:Grid> -->
+		</content>
+		<footer>
+			<Bar id="ftr_cmPage">
+				<contentRight>
+					<Button icon="sap-icon://excel-attachment" type="Emphasized"
+						text="Download Not Assigned Card List" press="onExporttoExcel" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

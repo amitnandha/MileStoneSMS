@@ -1,0 +1,34 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" showHeader="true" title="Division Detail"
+		beforeOpen="onBeforeDivisionDialogOpen">
+		<content>
+			<f:SimpleForm minWidth="1024" maxContainerCols="1"
+				editable="true" layout="ResponsiveGridLayout" labelSpanL="4"
+				labelSpanM="4" emptySpanL="4" emptySpanM="4" columnsL="2" columnsM="2"
+				class="sapUiSizeCompact">
+				<f:content>
+					<Label text="Class Name" design="Bold" required="true" />
+					<Input id="division_className_txtId" placeholder="Select Class ..."
+						showValueStateMessage="false" enabled="false" showValueHelp="true" valueHelpOnly="true"
+						valueHelpRequest="onDivisionDialog_ClassF4"/>
+					<Label text="Division Name" design="Bold" required="true" />
+					<Input id="divisionName_txtId" placeholder="Enter Division ..."
+						showValueStateMessage="false" enabled="false" />
+					<Label text="Division Name" design="Bold" required="false" />
+					<TextArea id="divisionDesc_txtAreaId" placeholder="Enter Descriptions..."/>
+					<Label text="Status" design="Bold" required="true" />
+					<Select id="statusDivision_cBoxId" showValueStateMessage="false" />
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button icon="sap-icon://save" text="Save"
+				press="onDivisionSaveDialogPress" type="Emphasized" />
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" press="onDivisionCancelDialogPress"
+				type="Default" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

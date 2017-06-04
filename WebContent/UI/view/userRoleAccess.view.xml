@@ -1,0 +1,81 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.userRoleAccess"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Page class="sapUiSizeCompact" showHeader="false">
+		<content>
+			<Panel width="auto" class="ResponsiveGridLayout" expandable="false"
+				expanded="true">
+				<headerToolbar>
+					<Toolbar height="3rem">
+						<core:Icon src="sap-icon://role" size="1.5rem" />
+						<Title text="User Role Detail" titleStyle="H5" level="H5" />
+						<ToolbarSpacer />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<f:SimpleForm minWidth="1024" maxContainerCols="2"
+						editable="true" layout="ResponsiveGridLayout" labelSpanL="4"
+						labelSpanM="4" emptySpanL="3" emptySpanM="3" columnsL="2"
+						columnsM="2" class="sapUiSizeCompact">
+						<f:content>
+							<core:Title />
+							<Label design="Bold" required="true" text="Role Name" />
+							<Input type="Text" id="roleName_txtId" placeholder="Enter Role Name" />
+							<Label design="Bold" required="true" text="Status" />
+							<Select id="roleStatus_selId" />
+							<core:Title />
+							<Label design="Bold" text="Description" />
+							<TextArea rows="3" id="roleDesc_txtId" placeholder="Enter Description..." />
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</Panel>
+			<Panel width="auto" class="sapUiResponsiveContentPadding"
+				expandable="false" expanded="true">
+				<headerToolbar>
+					<Toolbar height="3rem">
+						<core:Icon src="sap-icon://permission" size="1.5rem" />
+						<Title text="Access Rights" titleStyle="H5" level="H5" />
+						<ToolbarSpacer />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<Table inset="false" id="userRoleAccess_tblId" showNoData="true"
+						noDataText="No Record Found!!!" mode="MultiSelect">
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="Screen Name" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="Descriptions" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Read Access" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Create Access" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Edit Access" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Delete Access" />
+							</Column>
+						</columns>
+					</Table>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="submit_usrRoleAccessDtl_btnId" icon="sap-icon://save"
+						type="Accept" text="Submit" press="onSubmitPress" />
+					<Button icon="sap-icon://cancel" type="Reject" press="onNavBack"
+						text="Cancel" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

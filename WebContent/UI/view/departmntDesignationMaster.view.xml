@@ -1,0 +1,133 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.departmntDesignationMaster"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page class="sapUiSizeCompact" enableScrolling="{device>/isPhone}"
+		showHeader="false">
+		<content>
+			<IconTabBar select="onDeptDesigTabSelect" class="sapUiResponsiveContentPadding"
+				applyContentPadding="false" upperCase="true" backgroundDesign="Translucent">
+				<items>
+					<IconTabFilter text="Department Master" key="departmentMaster">
+						<Table inset="false" id="hdr_deptMaster_tblId" visible="{device>/isNoPhone}"
+							showNoData="false">
+							<headerToolbar>
+								<Toolbar>
+									<ToolbarSpacer />
+									<Button type="Emphasized" text="Add Department" press="onRegisterNewDepartment"
+										icon="sap-icon://business-card" />
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Left">
+									<ObjectIdentifier title="Department" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Left">
+									<ObjectIdentifier title="Description" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Status" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Action" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" width="0.1rem" />
+							</columns>
+						</Table>
+						<ScrollContainer vertical="true">
+							<Table id="deptMaster_tblId" inset="false" growing="true"
+								growingScrollToLoad="true" updateFinished="setDeptTableHeight">
+								<headerToolbar visible="{device>/isPhone}">
+									<Toolbar visible="{device>/isPhone}">
+										<ToolbarSpacer />
+										<Button type="Emphasized" text="Add Department" press="onRegisterNewDepartment"
+											icon="sap-icon://business-card" />
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Left">
+										<ObjectIdentifier title="Department" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Left">
+										<ObjectIdentifier title="Description" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Status" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Action" visible="{device>/isPhone}" />
+									</Column>
+								</columns>
+							</Table>
+						</ScrollContainer>
+					</IconTabFilter>
+					<IconTabFilter text="Designation Master" key="designationMaster">
+						<Table id="hdr_desigMaster_tblId" inset="false" visible="{device>/isNoPhone}"
+							showNoData="false">
+							<headerToolbar>
+								<Toolbar>
+									<ToolbarSpacer />
+									<Button type="Emphasized" text="Add Designation" press="onRegisterNewDesignation"
+										icon="sap-icon://business-card" />
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<ObjectIdentifier title="Designation" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<ObjectIdentifier title="Description" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<ObjectIdentifier title="Status" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<ObjectIdentifier title="Action" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" width="0.1rem" />
+							</columns>
+						</Table>
+						<ScrollContainer vertical="true">
+							<Table id="desigMaster_tblId" inset="false" growing="true"
+								growingScrollToLoad="true" updateFinished="setDesignationTableHeight">
+								<headerToolbar visible="{device>/isPhone}">
+									<Toolbar visible="{device>/isPhone}">
+										<ToolbarSpacer />
+										<Button type="Emphasized" text="Add Designation" press="onRegisterNewDesignation"
+											icon="sap-icon://business-card" />
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<ObjectIdentifier title="Designation" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<ObjectIdentifier title="Description"
+											visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<ObjectIdentifier title="Status" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<ObjectIdentifier title="Action" visible="{device>/isPhone}" />
+									</Column>
+								</columns>
+							</Table>
+						</ScrollContainer>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+		<footer>
+			<Bar>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

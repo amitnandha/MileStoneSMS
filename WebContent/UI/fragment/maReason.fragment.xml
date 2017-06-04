@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" showHeader="true" title="Reason">
+		<content>
+			<FlexBox direction="Column" alignItems="Start">
+				<items>
+					<Label text="Reason" id="lb_reason" required="true"
+						class="sapUiTinyMargin" />
+					<Select id="sel_reason" class="sapUiTinyMargin" />
+					<Label text="Comments" id="lb_comment" class="sapUiTinyMargin" />
+					<TextArea id="txar_coments" class="sapUiTinyMargin" rows="5"
+						cols="70" placeholder="Enter comments..." />
+				</items>
+			</FlexBox>
+		</content>
+		<beginButton>
+		</beginButton>
+		<endButton>
+			<Button text="OK" press="onReasonOk" type="Default" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

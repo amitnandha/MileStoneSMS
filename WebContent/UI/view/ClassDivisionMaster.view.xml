@@ -1,0 +1,132 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.ClassDivisionMaster"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page class="sapUiSizeCompact" enableScrolling="{device>/isPhone}"
+		showHeader="false">
+		<content>
+			<IconTabBar select="onClassDivisionTabSelect" class="sapUiResponsiveContentPadding"
+				applyContentPadding="false" upperCase="true" backgroundDesign="Translucent">
+				<items>
+					<IconTabFilter text="Class Master" key="classMaster">
+						<Table inset="false" id="hdr_classMaster_tblId" visible="{device>/isNoPhone}"
+							showNoData="false">
+							<headerToolbar>
+								<Toolbar>
+									<ToolbarSpacer />
+									<Button type="Emphasized" text="Add Class" press="onRegisterNewClass"
+										icon="sap-icon://business-card" />
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Left">
+									<ObjectIdentifier title="Class" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Status" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Action" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" width="0.1rem" />
+							</columns>
+						</Table>
+						<ScrollContainer vertical="true">
+							<Table id="classMaster_tblId" inset="false" growing="true"
+								growingScrollToLoad="true" updateFinished="setClassTableHeight">
+								<headerToolbar visible="{device>/isPhone}">
+									<Toolbar visible="{device>/isPhone}">
+										<ToolbarSpacer />
+										<Button type="Emphasized" text="Add Class" press="onRegisterNewClass"
+											icon="sap-icon://business-card" />
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Left">
+										<ObjectIdentifier title="Class" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Status" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Action" visible="{device>/isPhone}" />
+									</Column>
+								</columns>
+							</Table>
+						</ScrollContainer>
+					</IconTabFilter>
+					<IconTabFilter text="Division Master" key="divisionMaster">
+						<Table id="hdr_divMaster_tblId" inset="false" visible="{device>/isNoPhone}"
+							showNoData="false">
+							<headerToolbar>
+								<Toolbar>
+									<ToolbarSpacer />
+									<Button type="Emphasized" text="Add Division" press="onRegisterNewDivision"
+										icon="sap-icon://business-card" />
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<ObjectIdentifier title="Class Name" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<ObjectIdentifier title="Division Name" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<ObjectIdentifier title="Description" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<ObjectIdentifier title="Status" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<ObjectIdentifier title="Action" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" width="0.1rem" />
+							</columns>
+						</Table>
+						<ScrollContainer vertical="true">
+							<Table id="divMaster_tblId" inset="false" growing="true"
+								growingScrollToLoad="true" updateFinished="setDivisionTableHeight">
+								<headerToolbar visible="{device>/isPhone}">
+									<Toolbar visible="{device>/isPhone}">
+										<ToolbarSpacer />
+										<Button type="Emphasized" text="Add Division" press="onRegisterNewDivision"
+											icon="sap-icon://business-card" />
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<ObjectIdentifier title="Class Name" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<ObjectIdentifier title="Division Name"
+											visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<ObjectIdentifier title="Description"
+											visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<ObjectIdentifier title="Status" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<ObjectIdentifier title="Action" visible="{device>/isPhone}" />
+									</Column>
+								</columns>
+							</Table>
+						</ScrollContainer>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+		<footer>
+			<Bar>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

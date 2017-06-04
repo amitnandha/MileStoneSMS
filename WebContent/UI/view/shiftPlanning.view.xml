@@ -1,0 +1,102 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.shiftPlanning"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Page class="sapUiSizeCompact" enableScrolling="{device>/isPhone}" showHeader="false">
+		<content>
+			<!-- <l:Grid defaultSpan="L12 M12 S12"> -->
+			<!-- <l:content> -->
+			<Panel expandable="false" expanded="true" class="ResponsiveGridLayout">
+				<content>
+					<Table id="hdr_shiftPlanning_tblId" inset="false"
+						visible="{device>/isNoPhone}" showNoData="false">
+						<headerToolbar>
+							<Toolbar>
+								<ToolbarSpacer />
+								<Button type="Emphasized" text="Add Shift" press="onAddShift"
+									icon="sap-icon://create-entry-time" />
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Shift Name" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Shift Type" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="In Time" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Out Time" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Effective From Date" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Effective To Date" />
+							</Column>
+							<Column hAlign="Center" minScreenWidth="Tablet"
+								demandPopin="true" width="10%">
+								<ObjectIdentifier title="Action" />
+							</Column>
+							<Column id="colshft_scroll" minScreenWidth="Tablet"
+								demandPopin="true" width="1.5%">
+							</Column>
+						</columns>
+					</Table>
+					<ScrollContainer id="scrl_shftTab" vertical="true">
+						<Table id="shiftPlanning_tblId" inset="false"
+							updateFinished="setTableHeight" growing="true" growingScrollToLoad="true">
+							<headerToolbar visible="{device>/isPhone}">
+								<Toolbar visible="{device>/isPhone}">
+									<ToolbarSpacer />
+									<Button type="Emphasized" text="Add Shift" press="onAddShift"
+										icon="sap-icon://create-entry-time" />
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<ObjectIdentifier title="Shift Name" visible="{device>/isPhone}" />
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<ObjectIdentifier title="Shift Type" visible="{device>/isPhone}" />
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<ObjectIdentifier title="In Time" visible="{device>/isPhone}" />
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<ObjectIdentifier title="Out Time" visible="{device>/isPhone}" />
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<ObjectIdentifier title="Effective From Date"
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<ObjectIdentifier title="Effective To Date"
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column hAlign="Center" minScreenWidth="Tablet"
+									demandPopin="true" width="10%">
+									<ObjectIdentifier title="Action" visible="{device>/isPhone}" />
+								</Column>
+							</columns>
+						</Table>
+					</ScrollContainer>
+				</content>
+			</Panel>
+			<!-- </l:content> -->
+			<!-- </l:Grid> -->
+		</content>
+		<footer>
+			<Bar id="ftr_shftPage">
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

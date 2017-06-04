@@ -1,0 +1,89 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
+	<Dialog id="dlg_manualAttd" class="sapUiSizeCompact" showHeader="true"
+		title="Confirm" icon="sap-icon://question-mark" contentHeight="90%"
+		contentWidth="70%" verticalScrolling="false" draggable="true"
+		resizable="true" state="Warning" type="Standard">
+		<content>
+			<Panel expandable="false" expanded="true" class="sapUiSizeCompact">
+				<content>
+					<Table id="tab_HdrManlAttd" inset="false" showNoData="false">
+						<headerToolbar>
+							<Toolbar>
+								<ToolbarSpacer />
+								<Title id="tt_hdrTtl" text="Reason:" class="sapUiTinyMarginEnd" />
+								<Select forceSelection="true" change="onMassChange"
+									items="{
+						path: '/navHelpDialog'
+					}">
+									<core:Item key="{key}" text="{value}" />
+								</Select>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Roll Number" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Card Number" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Name" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Present/Absent" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true"
+								width="25%">
+								<ObjectIdentifier title="Reason" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Comment" />
+							</Column>
+							<Column id="col_manlAttd" hAlign="Center" minScreenWidth="Tablet"
+								demandPopin="true" width="2%">
+							</Column>
+						</columns>
+					</Table>
+					<ScrollContainer id="scrl_ManlAttd" vertical="true">
+						<Table id="tab_ManlAttd" inset="false" growing="true"
+							growingScrollToLoad="true">
+							<columns>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<!-- <ObjectIdentifier title="Roll Number" /> -->
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<!-- <ObjectIdentifier title="Card Number" /> -->
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<!-- <ObjectIdentifier title="Name" /> -->
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<!-- <ObjectIdentifier title="Present/Absent" /> -->
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true" width="25%">
+									<!-- <ObjectIdentifier title="Reason" /> -->
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<!-- <ObjectIdentifier title="Comment" /> -->
+								</Column>
+							</columns>
+						</Table>
+					</ScrollContainer>
+				</content>
+			</Panel>
+		</content>
+		<beginButton>
+			<Button text="Submit" press="onSubmit" type="Default" />
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" press="onClose" type="Default" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

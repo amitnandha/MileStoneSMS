@@ -1,0 +1,217 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.feeReport"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Page class="sapUiSizeCompact" showHeader="false" enableScrolling="{device>/isPhone}">
+		<content>
+			<Toolbar height="2.5rem">
+				<core:Icon src="sap-icon://filter" class="sapUiTinyMarginBegin" />
+				<Title titleStyle="H5" titleLevel="H5" text="Filter" />
+				<ToolbarSpacer />
+				<Button id="filterExpand_btnId" type="Emphasized"
+					icon="sap-icon://navigation-up-arrow" text="Collapse" class="sapUiTinyMarginEnd"
+					press="onFilterExpandPress" iconFirst="false" />
+			</Toolbar>
+			<Panel id="filter_pnlId" expandable="false" expanded="true">
+				<content>
+					<l:VerticalLayout class="sapUiResponsiveMargin">
+						<l:content>
+							<l:HorizontalLayout width="100%"
+								allowWrapping="{device>/isPhone}">
+								<l:content>
+									<VBox class="sapUiTinyMarginBeginEnd">
+										<Label design="Bold" text="Assessment Year" labelFor="assessment_filter_selId"
+											required="true" />
+										<Select id="assessmentYear_filter_selId" width="14rem"
+											items="{path: 'calendarYearRangeModel>/results',sorter: { path: 'key' }}">
+											<core:Item key="{calendarYearRangeModel>key}" text="{calendarYearRangeModel>value}" />
+										</Select>
+									</VBox>
+									<VBox class="sapUiTinyMarginBeginEnd">
+										<Label design="Bold" text="Assessment Month" labelFor="assessmentMonth_filter_selId"
+											required="true" />
+										<Select id="assessmentMonth_filter_selId" width="14rem"
+											items="{path: 'calendarMonthModel>/months/results',sorter: { path: 'key' }}">
+											<core:Item key="{calendarMonthModel>key}" text="{calendarMonthModel>longText}" />
+										</Select>
+									</VBox>
+									<VBox class="sapUiTinyMarginBeginEnd">
+										<Label design="Bold" text="First Name" labelFor="firstName_filter_txtId" />
+										<Input placeholder="Enter First Name ..." type="Text"
+											id="firstName_filter_txtId" width="14rem" liveChange="validateOnlyAlphabets" />
+									</VBox>
+									<VBox class="sapUiTinyMarginBeginEnd">
+										<Label design="Bold" text="Last Name" labelFor="lastName_filter_txtId" />
+										<Input placeholder="Enter Last Name ..." type="Text"
+											id="lastName_filter_txtId" width="14rem" liveChange="validateOnlyAlphabets" />
+									</VBox>
+									<VBox class="sapUiTinyMarginBeginEnd">
+										<Label design="Bold" text="Roll No." labelFor="rollNo_filter_txtId" />
+										<Input placeholder="Enter Roll No. ..." type="Text"
+											id="rollNo_filter_txtId" width="14rem" liveChange="validateOnlyNumbers"/>
+									</VBox>
+								</l:content>
+							</l:HorizontalLayout>
+							<l:HorizontalLayout width="100%"
+								allowWrapping="{device>/isPhone}" class="sapUiSmallMarginTopBottom">
+								<l:content>
+									<VBox class="sapUiTinyMarginBeginEnd">
+										<Label design="Bold" text="Gen. Reg. No." labelFor="genRegNo_filter_txtId" />
+										<Input placeholder="Enter Gen. Reg. No. ..." type="Text"
+											id="genRegNo_filter_txtId" width="14rem" liveChange="validateOnlyAlphabetNumeric"/>
+									</VBox>
+									<VBox class="sapUiTinyMarginBeginEnd">
+										<Label design="Bold" text="Class" labelFor="class_filter_txtId" />
+										<Input placeholder="Select Class ..." type="Text"
+											id="class_filter_txtId" width="14rem" showValueHelp="true"
+											valueHelpOnly="true" valueHelpRequest="handleClassValueHelp" />
+									</VBox>
+									<VBox class="sapUiTinyMarginBeginEnd">
+										<Label design="Bold" text="Division" labelFor="division_filter_txtId" />
+										<Input placeholder="Select Division ..." type="Text"
+											id="division_filter_txtId" width="14rem" showValueHelp="true"
+											valueHelpOnly="true" valueHelpRequest="handleDivisionValueHelp" />
+									</VBox>
+
+									<VBox class="sapUiTinyMarginBeginEnd">
+										<Label design="Bold" text="Status" labelFor="status_filter_selId" />
+										<Select id="status_filter_selId" width="14rem">
+											<items>
+												<core:Item key="0" text="Select Status" />
+												<core:Item key="1" text="Pending" />
+												<core:Item key="2" text="Over Due" />
+												<core:Item key="3" text="Paid" />
+											</items>
+										</Select>
+									</VBox>
+								</l:content>
+							</l:HorizontalLayout>
+							<l:HorizontalLayout width="100%"
+								allowWrapping="{device>/isPhone}" class="floatRight">
+								<l:content>
+									<HBox class="floatRight">
+										<Button icon="sap-icon://search" text="Search"
+											placeholder="Search" class="sapUiTinyMarginBeginEnd" type="Emphasized"
+											press="onFilterSearchBtnPress" />
+										<Button icon="sap-icon://reset" text="Reset"
+											placeholder="Reset" class="sapUiTinyMarginBeginEnd" type="Reject"
+											press="onFilterResetBtnPress" />
+									</HBox>
+								</l:content>
+							</l:HorizontalLayout>
+						</l:content>
+					</l:VerticalLayout>
+				</content>
+			</Panel>
+			<Panel width="auto" class="sapUiSmallMarginTop">
+				<content>
+					<Table inset="false" id="hdr_feeReports_tblId" visible="{device>/isNoPhone}"
+						showNoData="false">
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center"
+								width="{= ${device>/isPhone} === true ? 'auto' : '3rem'}">
+								<ObjectIdentifier title="Sr. No." />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="First Name" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="Last Name" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Gen. Reg. No." />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Roll No." />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Class" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Division" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Assessment Month" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Assesment Year" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Payment On" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Status" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true"
+								width="{= ${device>/isPhone} === true ? 'auto' : '0.1rem'}" />
+						</columns>
+					</Table>
+					<ScrollContainer vertical="true">
+						<Table id="feeReports_tblId" inset="false" growing="true"
+							growingScrollToLoad="true" updateFinished="onFeeReportTableUpdateFinish">
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center" width="{= ${device>/isPhone} === true ? 'auto' : '3rem'}">
+									<ObjectIdentifier title="Sr. No." visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Left">
+									<ObjectIdentifier title="First Name" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Left">
+									<ObjectIdentifier title="Last Name" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Gen. Reg. No."
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Roll No." visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Class" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Division" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Assessment Month"
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Assesment Year"
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Payment On" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Status" visible="{device>/isPhone}" />
+								</Column>
+							</columns>
+						</Table>
+					</ScrollContainer>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button icon="sap-icon://excel-attachment" type="Emphasized"
+						text="Export Excel" press="onExporttoExcel" />
+					<Button icon="sap-icon://cancel" type="Reject" press="onNavBack"
+						text="Cancel" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

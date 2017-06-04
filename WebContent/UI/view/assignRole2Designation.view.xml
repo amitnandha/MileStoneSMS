@@ -1,0 +1,69 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.assignRole2Designation"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Page class="sapUiSizeCompact" showHeader="false">
+		<content>
+			<Panel width="auto" class="ResponsiveGridLayout" expandable="false"
+				expanded="true">
+				<headerToolbar>
+					<Toolbar height="3rem">
+						<core:Icon src="sap-icon://group" size="1.5rem" />
+						<Title text="Designation Detail" titleStyle="H5" level="H5" />
+						<ToolbarSpacer />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<f:SimpleForm minWidth="1024" maxContainerCols="2"
+						editable="true" layout="ResponsiveGridLayout" labelSpanL="4"
+						labelSpanM="4" emptySpanL="3" emptySpanM="3" columnsL="2"
+						columnsM="2" class="sapUiSizeCompact">
+						<f:content>
+							<core:Title />
+							<Label design="Bold" text="Designation Name" />
+							<Input type="Text" id="designationName_txtId" placeholder="Designation Name"
+								enabled="false" />
+							<core:Title />
+							<Label design="Bold" text="Description" />
+							<TextArea rows="3" id="designationDesc_txtId"
+								placeholder="Description..." enabled="false" />
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</Panel>
+			<Panel width="auto" class="sapUiResponsiveContentPadding"
+				expandable="false" expanded="true">
+				<headerToolbar>
+					<Toolbar height="3rem">
+						<core:Icon src="sap-icon://role" size="1.5rem" />
+						<Title text="Assign User Role(s)" titleStyle="H5" level="H5" />
+						<ToolbarSpacer />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<Table inset="false" id="assignUserRoles_tblId" showNoData="true"
+						noDataText="No Record Found!!!" mode="MultiSelect">
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="Role Name" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="Descriptions" />
+							</Column>
+						</columns>
+					</Table>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="submit_assignRole2DesignDtl_btnId" icon="sap-icon://save"
+						type="Accept" text="Submit" press="onSubmitPress" />
+					<Button icon="sap-icon://cancel" type="Reject" press="onNavBack"
+						text="Cancel" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

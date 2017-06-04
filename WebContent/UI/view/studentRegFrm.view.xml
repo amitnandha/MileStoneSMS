@@ -1,0 +1,230 @@
+<core:View controllerName="com.itec.sams.controller.studentRegFrm"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:suite="sap.suite.ui.commons" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:u="sap.ui.unified"
+	xmlns:ux="sap.uxap">
+	<Page id="pg_SRADE" class="sapUiSizeCompact" showHeader="false">
+		<content>
+			<f:SimpleForm minWidth="1024" title="Student Detail"
+				maxContainerCols="3" editable="true" layout="ResponsiveGridLayout"
+				labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0"
+				columnsL="3" columnsM="3" class="editableForm">
+				<f:content>
+					<core:Title />
+					<Label id="lb_fName" text="First Name" design="Bold"
+						required="true"></Label>
+					<Input id="fName_txtId" type="Text" placeholder="Enter First Name..."
+						liveChange="valAlfabet" showValueStateMessage="false" />
+
+					<Label id="lb_dob" text="Date of Birth" design="Bold"
+						required="true"></Label>
+					<DatePicker id="dob_txtId" valueFormat="dd-MM-yyyy"
+						displayFormat="dd-MM-yyyy" placeholder="Select Date of Birth..."
+						change="valueStateNone" showValueStateMessage="false" />
+
+					<Label id="lb_grNo" text="G R No." design="Bold" required="true"></Label>
+					<Input id="grNo_txtId" type="Text" placeholder="Enter G R No..."
+						liveChange="valNumber" showValueStateMessage="false" />
+
+					<Label id="lb_rollNo" text="Roll Number" design="Bold"
+						required="true"></Label>
+					<Input id="rollNumber_txtId" type="Text" placeholder="Enter Roll Number"
+						liveChange="valNumber" showValueStateMessage="false" />
+
+					<Label id="lb_religion" text="Religion" design="Bold"
+						required="true"></Label>
+					<Input placeholder="Select Religion..." id="inp_religion"
+						visible="true" showValueHelp="true" valueHelpOnly="true"
+						valueHelpRequest="onReligionF4" showValueStateMessage="false" />
+
+					<Label id="lb_caste" text="Caste" design="Bold" required="true"></Label>
+					<Input placeholder="Select Caste..." id="inp_caste" visible="true"
+						showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onCasteF4"
+						showValueStateMessage="false" />
+
+					<core:Title />
+					<Label id="lb_lName" text="Last Name" design="Bold" required="true"></Label>
+					<Input id="lName_txtId" type="Text" placeholder="Enter Last Name ..."
+						liveChange="valAlfabet" showValueStateMessage="false" />
+					<Label id="lb_gender" text="Gender" design="Bold" required="true"></Label>
+					<Select id="sel_gender" placeholder="Select Gender..."
+						showValueStateMessage="false" change="valueStateNone" />
+					<Label id="lb_cardNo" text="Card Number" design="Bold"
+						required="true"></Label>
+					<Input id="cardNumber_txtId" type="Text" placeholder="Select Card Number ..."
+						showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onCardF4"
+						showValueStateMessage="false" />
+					<Label id="lb_class" text="Class" design="Bold" required="true"></Label>
+					<Input placeholder="Select Class..." id="inp_class" visible="true"
+						showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onClassF4"
+						showValueStateMessage="false" />
+					<Label id="lb_division" text="Division" design="Bold"
+						required="true"></Label>
+					<Input placeholder="Select Division..." id="inp_division"
+						visible="true" showValueHelp="true" valueHelpOnly="true"
+						valueHelpRequest="onDivisionF4" showValueStateMessage="false" />
+
+					<Label id="lb_subCaste" text="Sub-Caste" design="Bold"
+						required="true"></Label>
+					<Input placeholder="Select Sub Caste..." id="inp_subCaste"
+						visible="true" showValueHelp="true" valueHelpOnly="true"
+						valueHelpRequest="onSubCasteF4" showValueStateMessage="false" />
+
+					<core:Title />
+					<Label />
+					<Image id="img_student" src="../img/stdBlank.jpg" densityAware="false"
+						width="135px" heigth="170px" class="sapUiLargeMarginBegin" />
+					<Label />
+					<u:FileUploader id="imageUplaod" name="myImageUpload"
+						uploadUrl="/api/SMSAppSrv/uploadStudentImage" change="onImageUploadChange"
+						tooltip="Add Image" uploadComplete="handleImageUploadComplete"
+						uploadStart="onUploadStart" fileType="jpg,jpeg,png" typeMissmatch="onTypeMissmatch"
+						icon="sap-icon://background" iconOnly="true" maximumFileSize="2"
+						fileSizeExceed="onFileSizeExceed" />
+				</f:content>
+			</f:SimpleForm>
+			<f:SimpleForm minWidth="1024" title="Family Detail"
+				maxContainerCols="3" editable="true" layout="ResponsiveGridLayout"
+				labelSpanL="4" labelSpanM="1" emptySpanL="0" emptySpanM="0"
+				columnsL="3" columnsM="1" class="editableForm">
+				<f:content>
+					<core:Title text="Father's Detail" />
+					<Label id="lb_ftFname" text="First Name" design="Bold"
+						required="true"></Label>
+					<Input id="fFName_txtId" type="Text" placeholder="Enter First Name..."
+						liveChange="valAlfabet" showValueStateMessage="false" />
+
+					<Label id="lb_ftLname" text="Last Name" design="Bold"
+						required="true"></Label>
+					<Input id="fLName_txtId" type="Text" placeholder="Enter Last Name..."
+						liveChange="valAlfabet" showValueStateMessage="false" />
+
+					<Label id="lb_ftOccup" text="Occupation" design="Bold"
+						required="true"></Label>
+					<Input id="fOccupation_txtId" type="Text" placeholder="Enter Occupation..."
+						liveChange="valAlfabet" showValueStateMessage="false" />
+
+					<Label id="lb_ftDob" text="Date of Birth" design="Bold"
+						required="true"></Label>
+					<DatePicker id="fDOB_txtId" valueFormat="dd-MM-yyyy"
+						displayFormat="dd-MM-yyyy" placeholder="Select Date of Birth..."
+						change="valueStateNone" showValueStateMessage="false" />
+
+					<core:Title text="Mother's Detail" />
+					<Label id="lb_mtFname" text="First Name" design="Bold"
+						required="true"></Label>
+					<Input id="mFName_txtId" type="Text" placeholder="Enter First Name..."
+						liveChange="valAlfabet" showValueStateMessage="false" />
+
+					<Label id="lb_mtLname" text="Last Name" design="Bold"
+						required="true"></Label>
+					<Input id="mLName_txtId" type="Text" placeholder="Enter Last Name..."
+						liveChange="valAlfabet" showValueStateMessage="false" />
+
+					<Label id="lb_mtOccup" text="Occupation" design="Bold"
+						required="true"></Label>
+					<Input id="mOccupation_txtId" type="Text" placeholder="Enter Occupation..."
+						liveChange="valAlfabet" showValueStateMessage="false" />
+
+					<Label id="lb_mtDob" text="Date of Birth" design="Bold"
+						required="true"></Label>
+					<DatePicker id="mDOB_txtId" valueFormat="dd-MM-yyyy"
+						displayFormat="dd-MM-yyyy" placeholder="Select Date of Birth..."
+						change="valueStateNone" showValueStateMessage="false" />
+
+					<core:Title text="Guardian's Detail" />
+					<Label id="lb_grFname" text="First Name" design="Bold"
+						required="false"></Label>
+					<Input id="gFName_txtId" type="Text" placeholder="Enter First Name..."
+						liveChange="valAlfabet" showValueStateMessage="false" />
+
+					<Label id="lb_grLname" text="Last Name" design="Bold"
+						required="false"></Label>
+					<Input id="gLName_txtId" type="Text" placeholder="Enter Last Name..."
+						liveChange="valAlfabet" showValueStateMessage="false" />
+
+					<Label id="lb_grOccup" text="Occupation" design="Bold"
+						required="false"></Label>
+					<Input id="gOccupation_txtId" type="Text" placeholder="Enter Occupation..."
+						liveChange="valAlfabet" showValueStateMessage="false" />
+
+					<Label id="lb_grRelation" text="Relation" design="Bold"
+						required="false"></Label>
+					<Input id="gRelation_txtId" type="Text" placeholder="Enter Guardian Relation..."
+						liveChange="valAlfabet" showValueStateMessage="false" />
+
+				</f:content>
+			</f:SimpleForm>
+			<f:SimpleForm minWidth="1024" title="Communication Detail"
+				maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+				labelSpanL="4" labelSpanM="3" emptySpanL="1" emptySpanM="1"
+				columnsL="2" columnsM="2" class="editableForm">
+				<f:content>
+					<core:Title />
+					<Label id="lb_street" text="Street Address" design="Bold"
+						required="true"></Label>
+					<TextArea id="streetAddress_txtId" placeholder="Enter Street Address..."
+						liveChange="valueStateNone" showValueStateMessage="false" />
+
+					<Label id="lb_lMark" text="Locality/Landmark" design="Bold"
+						required="true"></Label>
+					<Input id="locality_txtId" type="Text" placeholder="Enter Locality/Landmark ..."
+						liveChange="valueStateNone" showValueStateMessage="false" />
+
+					<Label id="lb_mobNo" text="Mobile Number" design="Bold"
+						required="true"></Label>
+					<Input id="mobileNumber_txtId" type="Text" placeholder="Enter Mobile Number..."
+						liveChange="valNumber" maxLength="10" showValueStateMessage="false" />
+
+					<Label id="lb_email" text="Email Id" design="Bold" required="true"></Label>
+					<Input id="email_txtId" type="Text" placeholder="Enter Email Id..."
+						change="valEmail" liveChange="valEmailChar" showValueStateMessage="false" />
+
+					<Label id="lb_status" text="Status" design="Bold" required="true"></Label>
+					<Select id="status_cBoxId" placeholder="Select Status..."
+						showValueStateMessage="false" change="valueStateNone" />
+
+					<core:Title />
+					<Label id="lb_state" text="State" design="Bold" required="true"></Label>
+					<Input id="state_txtId" type="Text" placeholder="Select State ..."
+						showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onStateF4"
+						showValueStateMessage="false" />
+
+					<Label id="lb_city" text="City" design="Bold" required="true"></Label>
+					<Input id="city_txtId" type="Text" placeholder="Select City ..."
+						showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onCityF4"
+						showValueStateMessage="false" />
+
+					<Label id="lb_pinCode" text="Pincode" design="Bold" required="true"></Label>
+					<Input id="pinCode_txtId" placeholder="Enter Pincode ..."
+						liveChange="valNumber" maxLength="10" showValueStateMessage="false" />
+
+					<Label id="lb_alNumber" text="Alternate Number" design="Bold"
+						required="false"></Label>
+					<Input id="alternateNumber_txtId" type="Text"
+						placeholder="Enter Alternate Number..." liveChange="valNumber"
+						maxLength="10" showValueStateMessage="false" />
+
+					<Label id="lb_alEmail" text="Alternate Email Id" design="Bold"
+						required="false"></Label>
+					<Input id="alternateEmailId_txtId" type="Text"
+						placeholder="Enter Alternate Email Id" change="valEmail"
+						liveChange="valEmailChar" showValueStateMessage="false" />
+
+				</f:content>
+			</f:SimpleForm>
+			<!-- </l:content> -->
+			<!-- </l:Grid> -->
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="bt_stdSave" icon="sap-icon://save" text="Save"
+						type="Accept" press="onSave" />
+					<Button id="bt_stdCancel" icon="sap-icon://cancel" text="Cancel"
+						type="Reject" press="onCancel" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

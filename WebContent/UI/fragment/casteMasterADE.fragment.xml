@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" showHeader="true" title="Caste Detail" beforeOpen="onBeforeCasteDialogOpen">
+		<content>
+			<f:SimpleForm minWidth="1024" maxContainerCols="1"
+				editable="true" layout="ResponsiveGridLayout" labelSpanL="4"
+				labelSpanM="4" emptySpanL="4" emptySpanM="4" columnsL="2" columnsM="2"
+				class="sapUiSizeCompact">
+				<f:content>
+					<Label text="Caste Name" design="Bold" required="true" />
+					<Input id="casteName_txtId" placeholder="Enter Caste Name ..."
+						showValueStateMessage="false" enabled="false" />
+					<Label text="Status" design="Bold" required="true" />
+					<Select id="statusCaste_cBoxId" showValueStateMessage="false" />
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button icon="sap-icon://save" text="Save"
+				press="onCasteSaveDialogPress" type="Emphasized" />
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" press="onCasteCancelDialogPress" type="Default" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

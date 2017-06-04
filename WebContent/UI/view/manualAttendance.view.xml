@@ -1,0 +1,93 @@
+<core:View controllerName="com.itec.sams.controller.manualAttendance"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:suite="sap.suite.ui.commons" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:u="sap.ui.unified"
+	xmlns:ux="sap.uxap">
+	<Page class="sapUiSizeCompact" enableScrolling="{device>/isPhone}" showHeader="false">
+		<content>
+			<!-- <l:Grid defaultSpan="L12 M12 S12"> -->
+			<!-- <l:content> -->
+			<Panel expandable="false" expanded="true" class="ResponsiveGridLayout">
+				<content>
+					<Table id="tab_HdrmanAttd" inset="false" showNoData="false">
+						<headerToolbar>
+							<Toolbar>
+								<Title id="tt_hdrTtl" text="Total Student:" class="sapUiSmallMarginEnd" />
+								<Title id="tt_hdrPre" text="Present Student:" class="sapUiSmallMarginEnd" />
+								<Title id="tt_hdrAbs" text="Absent Student:" class="sapUiSmallMarginEnd" />
+								<Title id="tt_hdrPnd" text="Pending Student:" class="sapUiSmallMarginEnd" />
+								<ToolbarSpacer />
+								<Input placeholder="Select Class..." id="inp_maClass"
+									visible="true" showValueHelp="true" valueHelpOnly="true"
+									valueHelpRequest="onClassF4" tooltip="Class" width="20%" />
+								<Input placeholder="Select Division..." id="inp_maDiv"
+									visible="true" showValueHelp="true" valueHelpOnly="true"
+									valueHelpRequest="onDivisionF4" tooltip="Division" width="20%" />
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Roll Number" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Card Number" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="First Name" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Last Name" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="In Time" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Verify" />
+							</Column>
+							<Column id="col_maTabScrl" minScreenWidth="Tablet"
+								demandPopin="true" width="1.5%">
+							</Column>
+						</columns>
+					</Table>
+					<ScrollContainer id="scrl_maTab" vertical="true">
+						<Table id="tab_manAttd" inset="false" updateFinished="setTableHeight"
+							growing="true" growingScrollToLoad="true">
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<!-- <ObjectIdentifier title="Roll Number" /> -->
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<!-- <ObjectIdentifier title="Card Number" /> -->
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<!-- <ObjectIdentifier title="First Name" /> -->
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<!-- <ObjectIdentifier title="Last Name" /> -->
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<!-- <ObjectIdentifier title="In Time" /> -->
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<!-- <ObjectIdentifier title="Verify" /> -->
+								</Column>
+							</columns>
+						</Table>
+					</ScrollContainer>
+				</content>
+			</Panel>
+			<!-- </l:content> -->
+			<!-- </l:Grid> -->
+		</content>
+		<footer>
+			<Bar id="ftr_maPage">
+				<contentRight>
+					<Button id="bt_maSave" icon="sap-icon://save" text="Save"
+						type="Accept" press="onSave" />
+					<Button icon="sap-icon://cancel" text="Cancel" type="Reject"
+						press="onCancel" visible="false" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

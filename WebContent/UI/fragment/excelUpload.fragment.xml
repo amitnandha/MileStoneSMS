@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
+	<Dialog class="sapUiSizeCompact" showHeader="true" title="Upload Excel"
+		icon="sap-icon://excel-attachment">
+		<content>
+			<FlexBox alignItems="Center" justifyContent="Center">
+				<items>
+					<u:FileUploader id="fileUploader" name="myFileUpload"
+						uploadUrl="upload/" change="onFileUploaderChange" tooltip="Upload excel file"
+						uploadComplete="handleUploadComplete" />
+				</items>
+			</FlexBox>
+		</content>
+		<beginButton>
+			<Button text="Upload" press="onExcelUpload" type="Default" />
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" press="onExcelCancel" type="Default" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,189 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.ReligionCasteMaster"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page class="sapUiSizeCompact" showHeader="false" enableScrolling="{device>/isPhone}">
+		<content>
+			<IconTabBar expanded="{device>/isNoPhone}" expandable="{device>/isPhone}"
+				class="sapUiResponsiveContentPadding" applyContentPadding="true"
+				upperCase="true">
+				<items>
+					<IconTabFilter text="Religion">
+						<Table inset="false" visible="{device>/isNoPhone}"
+							showNoData="false">
+							<headerToolbar>
+								<Toolbar>
+									<ToolbarSpacer />
+									<Button type="Emphasized" text="Add Religion" press="onRegisterNewReligion"
+										icon="sap-icon://create-entry-time" />
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<ObjectIdentifier title="Religion" hAlign="Left" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Status" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Action" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" width="0.1rem" />
+							</columns>
+						</Table>
+						<ScrollContainer vertical="true">
+							<Table id="religionMaster_tblId" inset="false"
+								updateFinished="setReligionTableHeight" growing="true"
+								growingScrollToLoad="true">
+								<headerToolbar visible="{device>/isPhone}">
+									<Toolbar visible="{device>/isPhone}">
+										<ToolbarSpacer />
+										<Button type="Emphasized" text="Add Religion" press="onRegisterNewReligion"
+											icon="sap-icon://create-entry-time" />
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Left">
+										<ObjectIdentifier title="Religion" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Status" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Action" visible="{device>/isPhone}" />
+									</Column>
+								</columns>
+							</Table>
+						</ScrollContainer>
+					</IconTabFilter>
+					<IconTabFilter text="Caste">
+						<Table inset="false" visible="{device>/isNoPhone}"
+							showNoData="false">
+							<headerToolbar>
+								<Toolbar>
+									<ToolbarSpacer />
+									<Button type="Emphasized" text="Add Caste" press="onRegisterNewCaste"
+										icon="sap-icon://create-entry-time" />
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<ObjectIdentifier title="Caste" hAlign="Left" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Status" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Action" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" width="0.1rem" />
+							</columns>
+						</Table>
+						<ScrollContainer vertical="true">
+							<Table id="casteMaster_tblId" inset="false" updateFinished="setCasteTableHeight"
+								growing="true" growingScrollToLoad="true">
+								<headerToolbar visible="{device>/isPhone}">
+									<Toolbar visible="{device>/isPhone}">
+										<ToolbarSpacer />
+										<Button type="Emphasized" text="Add Caste" press="onRegisterNewCaste"
+											icon="sap-icon://create-entry-time" />
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Left">
+										<ObjectIdentifier title="Caste" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Status" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Action" visible="{device>/isPhone}" />
+									</Column>
+								</columns>
+							</Table>
+						</ScrollContainer>
+					</IconTabFilter>
+					<IconTabFilter text="SubCaste">
+						<Table inset="false" visible="{device>/isNoPhone}"
+							showNoData="false">
+							<headerToolbar>
+								<Toolbar>
+									<ToolbarSpacer />
+									<Button type="Emphasized" text="Add SubCaste" press="onRegisterNewSubCaste"
+										icon="sap-icon://create-entry-time" />
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Left">
+									<ObjectIdentifier title="SubCaste" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Caste" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Status" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Action" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" width="0.1rem" />
+							</columns>
+						</Table>
+						<ScrollContainer vertical="true">
+							<Table id="subCasteMaster_tblId" inset="false"
+								updateFinished="setSubCasteTableHeight" growing="true"
+								growingScrollToLoad="true">
+								<headerToolbar visible="{device>/isPhone}">
+									<Toolbar visible="{device>/isPhone}">
+										<ToolbarSpacer />
+										<Button type="Emphasized" text="Add SubCaste" press="onRegisterNewSubCaste"
+											icon="sap-icon://create-entry-time" />
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Left">
+										<ObjectIdentifier title="SubCaste" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Caste" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Status" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Action" visible="{device>/isPhone}" />
+									</Column>
+								</columns>
+							</Table>
+						</ScrollContainer>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<!-- <Button type="Accept" text="Submit" press="onPressSubmit" /> <Button 
+						icon="sap-icon://navigation-left-arrow" press="onNavBack" /> -->
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

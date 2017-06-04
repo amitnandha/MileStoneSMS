@@ -1,0 +1,68 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.screenGroupMaster"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Page class="sapUiSizeCompact" enableScrolling="{device>/isPhone}"
+		showHeader="false">
+		<content>
+			<Panel width="auto" class="ResponsiveGridLayout">
+				<headerToolbar>
+					<Toolbar height="3rem">
+						<ToolbarSpacer />
+						<Button type="Emphasized" icon="sap-icon://create" text="Add Screen Group"
+							class="sapUiSmallMarginEnd" press="onCreateScreenGroup" />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<Table inset="false" id="hdr_screenGroupMaster_tblId"
+						visible="{device>/isNoPhone}" showNoData="false">
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="Group Name" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="Group Description" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Status" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Action" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" width="0.1rem">
+							</Column>
+						</columns>
+					</Table>
+					<ScrollContainer vertical="true">
+						<Table id="screenGroupMaster_tblId" inset="false" growing="true"
+							growingScrollToLoad="true" updateFinished="setScreenGroupMasterTableHeight">
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Left" popinDisplay="Inline">
+									<ObjectIdentifier title="Group Name" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Left" popinDisplay="Inline">
+									<ObjectIdentifier title="Group Description"
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center" popinDisplay="Inline">
+									<ObjectIdentifier title="Status" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center" popinDisplay="Inline">
+									<ObjectIdentifier title="Action" visible="{device>/isPhone}" />
+								</Column>
+							</columns>
+						</Table>
+					</ScrollContainer>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

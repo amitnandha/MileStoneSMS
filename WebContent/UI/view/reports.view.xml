@@ -1,0 +1,25 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.reports"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Page class="sapUiSizeCompact" showHeader="false" enableScrolling="{device>/isPhone}">
+		<content>
+			<List headerText="Reports' List" growing="true"
+				growingThreshold="10" growingDirection="Upwards" busyIndicatorDelay="200"
+				enableBusyIndicator="true" noDataText="No Reports available..."
+				items="{path: 'reportListModel>/listItems/results',sorter: {path: 'itemId',descending: false}}"
+				mode="Active">
+				<StandardListItem title="{reportListModel>itemTitle}"
+					icon="{reportListModel>itemIcon}" iconInset="false" type="Navigation"
+					press="onReportListItemPress" />
+			</List>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

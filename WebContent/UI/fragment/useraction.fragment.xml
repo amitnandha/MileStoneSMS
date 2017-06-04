@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ActionSheet title="" showCancelButton="{device/isNoPhone}"
+		placement="Bottom" cancelButtonText="Close">
+		<buttons>
+			<Button text="Administrator" icon="sap-icon://person-placeholder" />
+			<Button text="Demo School" icon="sap-icon://study-leave" />
+			<Button text="Mumbai" icon="sap-icon://functional-location" />
+		</buttons>
+	</ActionSheet>
+</core:FragmentDefinition>

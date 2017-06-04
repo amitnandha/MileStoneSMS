@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="icon" href="../img/schoolIcon.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
+
+<title>School Management System</title>
+
+<!-- Server System Script -->
+<!-- <script
+	src="https://openui5.hana.ondemand.com/1.42.7/resources/sap-ui-core.js"
+	id="sap-ui-bootstrap" data-sap-ui-libs="sap.m"
+	data-sap-ui-theme="sap_belize"
+	data-sap-ui-xx-bindingSyntax="complex" data-sap-ui-compatVersion="1.36"
+	data-sap-ui-resourceroots='{"com.itec.sams":"./"}'>
+</script> -->
+
+<!-- Local System Script -->
+<script
+	src="../openUI5/resources/sap-ui-core.js"
+	id="sap-ui-bootstrap" data-sap-ui-libs="sap.m"
+	data-sap-ui-theme="sap_belize"
+	data-sap-ui-xx-bindingSyntax="complex" data-sap-ui-compatVersion="1.36"
+	data-sap-ui-resourceroots='{"com.itec.sams":"./"}'>
+</script>
+<script type="text/javascript">
+	sap.ui.getCore().attachInit(function() {
+		app : new sap.ui.core.ComponentContainer({
+			height : "100%",
+			name : "com.itec.sams"
+		}).placeAt("content");
+	});
+</script>
+
+
+</head>
+<body class="sapUiBody" id="content">
+</body>
+</html>

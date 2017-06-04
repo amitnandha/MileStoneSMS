@@ -1,0 +1,219 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.studentfFee"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Page class="sapUiSizeCompact" showHeader="false" enableScrolling="{device>/isPhone}">
+		<content>
+			<Toolbar height="2.5rem">
+				<core:Icon src="sap-icon://filter" class="sapUiTinyMarginBegin" />
+				<Title titleStyle="H5" titleLevel="H5" text="Filter" />
+				<ToolbarSpacer />
+				<Button id="filterExpand_btnId" type="Emphasized"
+					icon="sap-icon://navigation-up-arrow" text="Collapse" class="sapUiTinyMarginEnd"
+					press="onFilterExpandPress" />
+			</Toolbar>
+			<Panel id="filter_pnlId" expandable="false" expanded="true">
+				<content>
+					<l:VerticalLayout class="sapUiResponsiveMargin">
+						<l:content>
+							<l:HorizontalLayout width="100%"
+								allowWrapping="{device>/isPhone}">
+								<l:content>
+									<HBox class="sapUiTinyMarginBeginEnd">
+										<Input placeholder="First Name" type="Text" id="firstName_txtId"
+											width="14rem" change="onChangeSearch" liveChange="validateOnlyAlphabets" />
+									</HBox>
+									<HBox class="sapUiTinyMarginBeginEnd">
+										<Input placeholder="Last Name" type="Text" id="lastName_txtId"
+											width="14rem" change="onChangeSearch" liveChange="validateOnlyAlphabets" />
+									</HBox>
+									<HBox class="sapUiTinyMarginBeginEnd">
+										<Input placeholder="Roll Number" type="Text" id="rollNumber_txtId"
+											width="14rem" change="onChangeSearch" liveChange="validateOnlyNumbers" />
+									</HBox>
+									<HBox class="sapUiTinyMarginBeginEnd">
+										<Input placeholder="Class" type="Text" id="class_txtId"
+											width="14rem" showValueHelp="true" valueHelpOnly="true"
+											valueHelpRequest="handleClassValueHelp" />
+									</HBox>
+									<HBox class="sapUiTinyMarginBeginEnd">
+										<Input placeholder="Division" type="Text" id="division_txtId"
+											width="14rem" showValueHelp="true" valueHelpOnly="true"
+											valueHelpRequest="handleDivisionValueHelp" />
+									</HBox>
+									<Button type="Reject" tooltip="Reset Filter" icon="sap-icon://reset"
+										press="onResetFilterPress" class="sapUiTinyMarginBeginEnd" />
+								</l:content>
+							</l:HorizontalLayout>
+							<Panel id="filterStudentList_pnlId" expandable="false"
+								expanded="true" class="sapUiSmallMarginTop" visible="false">
+								<content>
+									<Table inset="false" id="hdr_studentFee_tblId" visible="{device>/isNoPhone}"
+										showNoData="false">
+										<columns>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Left">
+												<ObjectIdentifier title="First Name" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Left">
+												<ObjectIdentifier title="Last Name" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Center">
+												<ObjectIdentifier title="G. R. No." />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Center">
+												<ObjectIdentifier title="Roll Number" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Center">
+												<ObjectIdentifier title="Class" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Center">
+												<ObjectIdentifier title="Division" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Center">
+												<ObjectIdentifier title="Action" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												width="0.1rem">
+											</Column>
+										</columns>
+									</Table>
+									<ScrollContainer vertical="true" width="100%">
+										<Table id="studentFee_tblId" inset="false" growing="true"
+											growingScrollToLoad="true" updateFinished="setStudentFeeTableHeight">
+											<columns>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Left">
+													<ObjectIdentifier title="First Name"
+														visible="{device>/isPhone}" />
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Left">
+													<ObjectIdentifier title="Last Name"
+														visible="{device>/isPhone}" />
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Center">
+													<ObjectIdentifier title="G. R. No."
+														visible="{device>/isPhone}" />
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Center">
+													<ObjectIdentifier title="Roll Number"
+														visible="{device>/isPhone}" />
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Center">
+													<ObjectIdentifier title="Class"
+														visible="{device>/isPhone}" />
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Center">
+													<ObjectIdentifier title="Division"
+														visible="{device>/isPhone}" />
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Center">
+													<ObjectIdentifier title="Action"
+														visible="{device>/isPhone}" />
+												</Column>
+											</columns>
+										</Table>
+									</ScrollContainer>
+								</content>
+							</Panel>
+						</l:content>
+					</l:VerticalLayout>
+				</content>
+			</Panel>
+			<Panel id="studentFeeDtl_pnlId" expandable="false" expanded="true"
+				visible="false" width="100%">
+				<content>
+					<l:VerticalLayout class="sapUiResponsiveMargin">
+						<l:content>
+							<Table inset="false" width="100%">
+								<columns>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Left">
+										<ObjectIdentifier title="First Name" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Left">
+										<ObjectIdentifier title="Last Name" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="G. R. No." />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Roll Number" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Class" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Division" />
+									</Column>
+								</columns>
+								<ColumnListItem>
+									<cells>
+										<Text id="studentFirstName_txtId" />
+										<Text id="studentLastName_txtId" />
+										<Text id="studentGRNo_txtId" />
+										<Text id="studentRollNumber_txtId" />
+										<Text id="studentClass_txtId" />
+										<Text id="studentDivision_txtId" />
+									</cells>
+								</ColumnListItem>
+							</Table>
+							<l:HorizontalLayout width="100%"
+								allowWrapping="{device>/isPhone}" class="sapUiTinyMarginTopBottom floatRight">
+								<l:content>
+									<Label text="Receipt No." id="receiptNo_lblId" design="Bold"
+										required="true" class="sapUiSmallMarginBeginEnd sapUiTinyMarginTop" />
+									<Input id="receiptNo_txtId" placeholder="Receipt No."
+										type="Text" liveChange="validateOnlyAlphabetNumeric" />
+									<Label text="Receipt Date" id="receiptDt_lblId" design="Bold"
+										required="true" class="sapUiSmallMarginBeginEnd sapUiTinyMarginTop" />
+									<DatePicker id="receiptDt_dtpId" placeholder="Receipt Date."
+										displayFormat="dd-MM-yyyy" valueFormat="dd-MM-yyyy" change="validateDate" />
+								</l:content>
+							</l:HorizontalLayout>
+							<ScrollContainer vertical="true" width="100%">
+								<Panel id="feePaymentDtl_pnlId" expandable="false"
+									expanded="true" width="100%" backgroundDesign="Solid">
+									<headerToolbar>
+										<Toolbar height="2.5rem" design="Info">
+											<core:Icon src="sap-icon://batch-payments" size="1.875rem"
+												class="sapUiTinyMarginBeginEnd" />
+											<Title level="H5" titleStyle="H5" text="Fee Payment Detail" />
+										</Toolbar>
+									</headerToolbar>
+								</Panel>
+							</ScrollContainer>
+						</l:content>
+					</l:VerticalLayout>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="studentFee_submit_btnId" icon="sap-icon://save"
+						text="Submit" type="Accept" visible="false" press="onSubmit" />
+					<Button id="studentFee_cancel_btnId" icon="sap-icon://sys-cancel"
+						text="Cancel" type="Reject" visible="false" press="onCancel" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,108 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.userGroupDetail"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Page class="sapUiSizeCompact" showHeader="false">
+		<content>
+			<Panel width="auto" class="ResponsiveGridLayout" expandable="false"
+				expanded="true">
+				<headerToolbar>
+					<Toolbar height="3rem">
+						<core:Icon src="sap-icon://group" size="1.5rem" />
+						<Title text="User Group Detail" titleStyle="H5" level="H5" />
+						<ToolbarSpacer />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<f:SimpleForm minWidth="1024" maxContainerCols="2"
+						editable="true" layout="ResponsiveGridLayout" labelSpanL="4"
+						labelSpanM="4" emptySpanL="3" emptySpanM="3" columnsL="2"
+						columnsM="2" class="sapUiSizeCompact">
+						<f:content>
+							<core:Title />
+							<Label design="Bold" required="true" text="Role Name" />
+							<Input type="Text" id="userGroupName_txtId" placeholder="Enter User Group Name" />
+							<Label design="Bold" required="true" text="Status" />
+							<Select id="userGroupStatus_selId" />
+							<core:Title />
+							<Label design="Bold" text="Description" />
+							<TextArea rows="3" id="userGroupDesc_txtId" placeholder="Enter Description..." />
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</Panel>
+			<Panel width="auto" expandable="false" expanded="true">
+				<content>
+					<IconTabBar select="onUserGroupUserNRolesIconTabBarSelect"
+						class="sapUiResponsiveContentPadding" applyContentPadding="false"
+						upperCase="false" backgroundDesign="Translucent">
+						<items>
+							<IconTabFilter text="User(s)" key="users">
+								<Table inset="false" id="uGroupUsers_tblId" showNoData="true"
+									noDataText="No Record Found!!!">
+									<headerToolbar>
+										<Toolbar height="3rem" id="uGroupUsersTblHdr_toolbarId">
+											<ToolbarSpacer />
+											<Button type="Emphasized" icon="sap-icon://create"
+												text="Add User(s)" class="sapUiSmallMarginEnd" press="onAddUsers2Group" />
+										</Toolbar>
+									</headerToolbar>
+									<columns>
+										<Column minScreenWidth="Tablet" demandPopin="true"
+											hAlign="Left">
+											<ObjectIdentifier title="Employee No." />
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true"
+											hAlign="Left">
+											<ObjectIdentifier title="First Name" />
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true"
+											hAlign="Left">
+											<ObjectIdentifier title="Last Name" />
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true"
+											hAlign="Center">
+											<ObjectIdentifier title="Department" />
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true"
+											hAlign="Center">
+											<ObjectIdentifier title="Designation" />
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true"
+											hAlign="Center" width="0.875rem" />
+									</columns>
+								</Table>
+							</IconTabFilter>
+							<IconTabFilter text="Assign Role(s)" key="roles">
+								<Table inset="false" id="uGroupAssignRoles_tblId"
+									showNoData="true" noDataText="No Record Found!!!" mode="MultiSelect">
+									<columns>
+										<Column minScreenWidth="Tablet" demandPopin="true"
+											hAlign="Left">
+											<ObjectIdentifier title="Role Name" />
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true"
+											hAlign="Left">
+											<ObjectIdentifier title="Descriptions" />
+										</Column>
+									</columns>
+								</Table>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="submit_usrGroupDtl_btnId" icon="sap-icon://save"
+						type="Accept" text="Submit" press="onSubmitPress" />
+					<Button icon="sap-icon://cancel" type="Reject" press="onNavBack"
+						text="Cancel" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

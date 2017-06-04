@@ -1,0 +1,108 @@
+{  
+   "navigation":[  
+      {  
+         "menuId":"1",
+         "menuText":"Dashboard",
+         "menuIcon":"sap-icon://bbyd-dashboard",
+         "menuAction":"DashBoard",
+         "isVisible":true
+      },
+      {  
+         "menuId":"2",
+         "menuText":"Shift Planning",
+         "menuIcon":"sap-icon://timesheet",
+         "menuAction":"ShiftPlanning",
+         "isVisible":true
+      },
+      {  
+         "menuId":"3",
+         "menuText":"Fee Structure",
+         "menuIcon":"sap-icon://collections-management",
+         "menuAction":"FeeStructure",
+         "isVisible":true
+      },{
+      	"menuId":"4",
+      	 "menuText":"Fee Concession",
+         "menuIcon":"sap-icon://accounting-document-verification",
+         "menuAction":"FeeConcession",
+         "isVisible":true
+      },{  
+         "menuId":"5",
+         "menuText":"Religion - Caste - Sub Caste Master",
+         "menuIcon":"sap-icon://group",
+         "menuAction":"ReligionCasteMaster",
+         "isVisible":true
+      },
+      {  
+         "menuId":"6",
+         "menuText":"Notification Center",
+         "menuIcon":"sap-icon://paper-plane",
+         "menuAction":"notification",
+         "isVisible":true
+      },
+      {  
+         "menuId":"7",
+         "menuText":"Card Master",
+         "menuIcon":"sap-icon://business-card",
+         "menuAction":"CardMaster",
+         "isVisible":true
+      },
+      {  
+         "menuId":"8",
+         "menuText":"Class - Division Master",
+         "menuIcon":"sap-icon://switch-classes",
+         "menuAction":"ClassDivMaster",
+         "isVisible":true
+      },
+      {  
+         "menuId":"9",
+         "menuText":"Student",
+         "menuIcon":"sap-icon://personnel-view",
+         "menuAction":"StudentReg",
+         "isVisible":true
+      },
+      {  
+         "menuId":"10",
+         "menuText":"Student Fee",
+         "menuIcon":"sap-icon://simulate",
+         "menuAction":"StudentFee",
+         "isVisible":true
+      },
+      {  
+         "menuId":"11",
+         "menuText":"Attendance",
+         "menuIcon":"sap-icon://time-account",
+         "menuAction":"ManualAttendance",
+         "isVisible":true
+      },{
+       	"menuId":"12",
+         "menuText":"Reports",
+         "menuIcon":"sap-icon://manager-insight",
+         "menuAction":"Reports",
+         "isVisible":true
+      }
+   ],
+   "fixedNavigation":[  
+      {  
+         "menuId":"1",
+         "menuText":"My Profile",
+         "menuIcon":"sap-icon://user-settings",
+         "menuAction":"MyProfile",
+         "isVisible":false
+      },
+      {  
+         "menuId":"2",
+         "menuText":"Settings",
+         "menuIcon":"sap-icon://action-settings",
+         "menuAction":"MySetting",
+         "isVisible":false
+      },
+      {  
+         "menuId":"3",
+         "menuText":"Log Out",
+         "menuIcon":"sap-icon://log",
+         "menuAction":"logoff",
+         "isVisible":true
+      }
+   ]
+}

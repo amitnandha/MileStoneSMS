@@ -1,0 +1,109 @@
+<core:View controllerName="com.itec.sams.controller.shiftPlanDtl"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:suite="sap.suite.ui.commons" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:u="sap.ui.unified"
+	xmlns:ux="sap.uxap">
+	<Page class="sapUiSizeCompact" showHeader="false">
+		<content>
+			<!-- <l:Grid defaultSpan="L12 M12 S12"> -->
+			<!-- <l:content> -->
+			<f:SimpleForm minWidth="1024" title="Shift Detail"
+				maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+				labelSpanL="4" labelSpanM="3" emptySpanL="1" emptySpanM="1"
+				columnsL="2" columnsM="2" class="editableForm">
+				<f:content>
+					<core:Title />
+					<Label id="lb_shftName" text="Shift Name" design="Bold"
+						required="true"></Label>
+					<Input id="in_shftName" placeholder="Enter Shift Name..."
+						liveChange="valueStateNone" showValueStateMessage="false" />
+
+					<Label id="lb_shfTyp" text="Shift Type" design="Bold"
+						required="true"></Label>
+					<Select id="sel_shftTyp" change="onShftTypeChange"
+						showValueStateMessage="false" />
+
+					<Label id="lb_shfpState" text="Status" design="Bold"
+						required="true"></Label>
+					<Select id="sel_shfpState" showValueStateMessage="false" change="valueStateNone" />
+
+					<Label id="lb_effFrmDate" text="Effective From Date" design="Bold"
+						required="true"></Label>
+					<DatePicker id="dp_effFrmDate" valueFormat="yyyy-MM-dd"
+						displayFormat="dd-MM-yyyy" placeholder="Effective From Date ..."
+						change="valueStateNone" showValueStateMessage="false" />
+
+					<Label id="lb_effToDate" text="Effective To Date" design="Bold"
+						required="true"></Label>
+					<DatePicker id="dp_effToDate" valueFormat="yyyy-MM-dd"
+						displayFormat="dd-MM-yyyy" placeholder="Effective To Date ..."
+						change="valueStateNone" showValueStateMessage="false" />
+
+					<core:Title />
+					<Label id="lb_minIn" text="Min In Time" design="Bold"
+						required="true"></Label>
+					<TimePicker id="tp_minIn" valueFormat="HH:mm:ss"
+						displayFormat="hh:mm a" placeholder="Enter Min In Time ..."
+						change="valueStateNone" showValueStateMessage="false" />
+
+					<Label id="lb_maxIn" text="Max In Time" design="Bold"
+						required="true"></Label>
+					<TimePicker id="tp_maxIn" valueFormat="HH:mm:ss"
+						displayFormat="hh:mm a" placeholder="Enter Max In Time ..."
+						change="valueStateNone" showValueStateMessage="false" />
+
+					<Label id="lb_minOut" text="Min Out Time" design="Bold"
+						required="true"></Label>
+					<TimePicker id="tp_minOut" valueFormat="HH:mm:ss"
+						displayFormat="hh:mm a" placeholder="Enter Min Out Time ..."
+						change="valueStateNone" showValueStateMessage="false" />
+
+					<Label id="lb_maxOut" text="Max Out Time" design="Bold"
+						required="true"></Label>
+					<TimePicker id="tp_maxOut" valueFormat="HH:mm:ss"
+						displayFormat="hh:mm a" placeholder="Enter Max Out Time ..."
+						change="valueStateNone" showValueStateMessage="false" />
+
+					<Label id="lb_bufOut" text="Buffer Out Time" design="Bold"
+						required="true"></Label>
+					<TimePicker id="tp_bufOut" valueFormat="HH:mm:ss"
+						displayFormat="hh:mm a" placeholder="Enter Buffer Out Time ..."
+						change="valueStateNone" showValueStateMessage="false" />
+
+				</f:content>
+			</f:SimpleForm>
+			<Table id="tb_classDiv" inset="false" mode="Delete" delete="onClDivTabDelete">
+				<headerToolbar>
+					<Toolbar>
+						<Title level="H4" text="Assign Class" titleStyle="H4"></Title>
+						<ToolbarSpacer />
+						<Button id="bt_hdrAddClDiv" type="Emphasized" text="Add Class and Division"
+							press="onAddClassDiv" icon="sap-icon://add-product" />
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true"
+						width="30%">
+						<ObjectIdentifier title="Class" />
+					</Column>
+					<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true"
+						width="70%">
+						<ObjectIdentifier title="Division" />
+					</Column>
+				</columns>
+			</Table>
+			<!-- </l:content> -->
+			<!-- </l:Grid> -->
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="bt_shftSave" icon="sap-icon://save" text="Save"
+						type="Accept" press="onSave" />
+					<Button id="bt_shftCancel" icon="sap-icon://cancel" text="Cancel"
+						type="Reject" press="onNavBack" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

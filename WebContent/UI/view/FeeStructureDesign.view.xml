@@ -1,0 +1,63 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.FeeStructureDesign"
+	xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page class="sapUiSizeCompact" showHeader="false">
+		<content>
+			<Panel width="auto">
+				<headerToolbar>
+					<Toolbar height="3rem">
+						<Label text="Monthly Due Day:" design="Bold" required="true"
+							class="sapUiTinyMarginBeginEnd" />
+						<Select id="monthDueOn_selId" items="{path: 'calendarMonthModel>/days/results'}">
+							<core:Item key="{calendarMonthModel>key}" text="{calendarMonthModel>value}" />
+						</Select>
+						<ToolbarSpacer />
+						<Button type="Emphasized" icon="sap-icon://sys-add" text="Add Row"
+							class="sapUiSmallMarginEnd" press="onPressAddRow" />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<Table id="feeStructureDesign_tblId" showNoData="false"
+						width="100%">
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center"
+								width="{= ${device>/isPhone} === true ? 'auto' : '3.5rem'}">
+								<Label text="Sr. No." design="Bold" required="true" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<Label text="Label" design="Bold" required="true" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center"
+								visible="false">
+								<Label text="Control Type" design="Bold" required="true" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<Label text="Applicable On" design="Bold" required="true" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<Label text="Due On" design="Bold" required="true" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<Label text="Discount Applicable" design="Bold" required="false" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right"
+								width="3rem">
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true"
+								width="{= ${device>/isPhone} === true ? 'auto' : '0.1rem'}" />
+						</columns>
+					</Table>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button type="Accept" text="Submit" press="onPressSubmit" />
+					<Button icon="sap-icon://cancel" type="Reject" press="onNavBack"
+						text="Cancel" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

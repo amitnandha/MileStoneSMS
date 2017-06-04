@@ -1,0 +1,68 @@
+<core:View controllerName="com.itec.sams.controller.cardDetail"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:suite="sap.suite.ui.commons" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:u="sap.ui.unified"
+	xmlns:ux="sap.uxap">
+	<Page class="sapUiSizeCompact" enableScrolling="{device>/isPhone}" showHeader="false">
+		<content>
+			<Table id="hdr_cardDetail_tblId" inset="false" mode="Delete"
+				delete="onDelete" visible="{device>/isNoPhone}" showNoData="false">
+				<headerToolbar>
+					<Toolbar>
+						<ToolbarSpacer />
+						<Button id="bt_addRow" icon="sap-icon://add-activity" text="Add"
+							type="Emphasized" press="_addRow" />
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<ObjectIdentifier title="RF-Id/Unique Id" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<ObjectIdentifier title="Descriptions" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<ObjectIdentifier title="Card Group" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<ObjectIdentifier title="Status" />
+					</Column>
+					<Column id="colcrd_scroll" minScreenWidth="Tablet"
+						demandPopin="true" width="1.5%" visible="false">
+					</Column>
+				</columns>
+			</Table>
+			<ScrollContainer id="scrl_crdTab" vertical="true">
+				<Table id="cardDetail_tblId" inset="false" mode="Delete"
+					delete="onDelete">
+					<columns>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<ObjectIdentifier title="RF-Id/Unique Id"
+								visible="{device>/isPhone}" />
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<ObjectIdentifier title="Descriptions" visible="{device>/isPhone}" />
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<ObjectIdentifier title="Card Group" visible="{device>/isPhone}" />
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<ObjectIdentifier title="Status" visible="{device>/isPhone}" />
+						</Column>
+					</columns>
+				</Table>
+			</ScrollContainer>
+
+		</content>
+		<footer>
+			<Bar id="ftr_crdPage">
+				<contentRight>
+					<Button id="bt_crd_save" icon="sap-icon://save" text="Save"
+						type="Accept" press="onSave" />
+					<Button id="bt_crd_Cancel" icon="sap-icon://cancel" text="Cancel"
+						type="Reject" press="onNavBack" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

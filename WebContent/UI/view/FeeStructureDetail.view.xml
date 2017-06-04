@@ -1,0 +1,93 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.FeeStructureDetail"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Page class="sapUiSizeCompact" showHeader="false">
+		<content>
+			<Panel width="auto" class="ResponsiveGridLayout" expandable="true"
+				expanded="true">
+				<headerToolbar>
+					<Toolbar height="3rem">
+						<Title text="Fee Detail" />
+						<ToolbarSpacer />
+						<Label text="Class: " design="Bold" required="true" />
+						<Input id="classFeeStruct_txtId" placeholder="Select Class"
+							showValueHelp="true" width="180px" valueHelpOnly="true"
+							class="sapUiSmallMarginEnd" valueHelpRequest="onFeeStructureClassF4" />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<f:SimpleForm id="feeStructure_frmId" minWidth="1024"
+						maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+						labelSpanL="4" labelSpanM="4" emptySpanL="3" emptySpanM="3"
+						columnsL="2" columnsM="2" class="sapUiSizeCompact">
+						<f:content>
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</Panel>
+			<Panel width="auto" class="ResponsiveGridLayout" expandable="true"
+				expanded="true">
+				<headerToolbar>
+					<Toolbar height="3rem">
+						<Title text="Discount(s) on Minority" />
+						<ToolbarSpacer />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<l:HorizontalLayout class="sapUiResponsiveMargin"
+						allowWrapping="{device>/isPhone}">
+						<Label design="Bold" required="true"
+							text="Ques 1. Are any concession applicable?" class="sapUiTinyMarginTop sapUiTinyMarginEnd" />
+						<RadioButton id="consessionYes_rBtnId" text="Yes"
+							groupName="ISCONSESSION" />
+						<RadioButton id="consessionNo_rBtnId" text="No"
+							groupName="ISCONSESSION" />
+						<Label design="Bold" required="true"
+							text="Ques 2. Are any Discount(s) applicable on minority?" class="sapUiTinyMarginTop sapUiSmallMarginBegin sapUiTinyMarginEnd" />
+						<RadioButton id="discountYes_rBtnId" text="Yes"
+							groupName="ISDISCOUNT" select="onDiscountYesSelect" />
+						<RadioButton id="discountNo_rBtnId" text="No"
+							groupName="ISDISCOUNT" select="onDiscountNoSelect" />
+					</l:HorizontalLayout>
+					<Table id="religionsDiscount_tblId" inset="false"
+						class="ResponsiveGridLayout" visible="false" showNoData="true">
+						<headerToolbar>
+							<Toolbar height="3rem">
+								<Title text="Religion Minority" />
+								<ToolbarSpacer />
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left" />
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left" />
+						</columns>
+					</Table>
+					<Table id="casteSubCasteDiscount_tblId" inset="false"
+						class="ResponsiveGridLayout" visible="false" showNoData="true">
+						<headerToolbar>
+							<Toolbar height="3rem">
+								<Title text="Caste - Subcaste Minority" />
+								<ToolbarSpacer />
+							</Toolbar>
+						</headerToolbar>
+					</Table>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+				<contentLeft>
+					<Label text="Total Amount: " design="Bold" />
+					<Text id="totalAmountPayable_txtId" text="0" class="fa fa-inr" />
+				</contentLeft>
+				<contentRight>
+					<Button id="submit_FSD_btnId" icon="sap-icon://save" type="Accept"
+						text="Submit" press="onSubmitPress" />
+					<Button icon="sap-icon://cancel" type="Reject" press="onNavBack"
+						text="Cancel" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

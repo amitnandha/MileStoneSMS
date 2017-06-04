@@ -1,0 +1,57 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.dashboard"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:ch="sap.suite.ui.microchart" xmlns:v="sap.viz.ui5.controls"
+	xmlns:f="sap.ui.layout.form" xmlns:v.data="sap.viz.ui5.data"
+	xmlns:v.feeds="sap.viz.ui5.controls.common.feeds">
+	<Page class="sapUiSizeCompact" showHeader="false">
+		<content>
+			<Panel expanded="true" expandable="false" headerText="My Dashboard"
+				class="sapUiResponsiveContentPadding">
+				<headerToolbar>
+					<Toolbar height="3rem" class="sapUiResponsiveContentPadding">
+						<core:Icon src="sap-icon://bbyd-dashboard" />
+						<Title text="My Dashboard" />
+						<ToolbarSpacer />
+						<Button type="Emphasized" text="Refresh" press="initialLoad"
+							icon="sap-icon://refresh" />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<f:SimpleForm editable="true" id="pieCharts"
+						maxContainerCols="2" labelSpanL="0" labelSpanM="0" emptySpanL="0"
+						emptySpanM="0" columnsL="2" columnsM="2" layout="ResponsiveGridLayout"
+						class="sapUiSizeCompact">
+						<f:content>
+							<core:Title id="ct_prAb" text="Total Students" />
+							<HBox>
+								<html:div id="hb_prAb" style="height:180px;width:450px" />
+							</HBox>
+							<core:Title id="ct_preAttd" text="Present Students" />
+							<HBox>
+								<html:div id="hb_preAttd" style="height:250px;width:450px" />
+							</HBox>
+							<core:Title text="Message Counter" />
+							<HBox width="100%">
+								<Title id="ct_nftStatus" titleStyle="H5" level="H5" />
+							</HBox>
+							<HBox visible="false">
+								<html:div id="hb_nftStatus" style="height:180px;width:300px;" />
+							</HBox>
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+			    <contentLeft>
+				    <Text text="&#169; MileStone Technolgies" />
+				</contentLeft>
+				<contentMiddle>
+					<Text text="Welcome to School Management System !!!" />
+				</contentMiddle>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

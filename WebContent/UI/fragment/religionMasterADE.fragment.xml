@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" showHeader="true" title="Religion Detail"
+		beforeOpen="onBeforeReligionDialogOpen">
+		<content>
+			<f:SimpleForm minWidth="1024" maxContainerCols="1"
+				editable="true" layout="ResponsiveGridLayout" labelSpanL="4"
+				labelSpanM="4" emptySpanL="4" emptySpanM="4" columnsL="2" columnsM="2"
+				class="sapUiSizeCompact">
+				<f:content>
+					<Label text="Religion Name" design="Bold" required="true" />
+					<Input id="religionName_txtId" placeholder="Enter Religion Name ..."
+						showValueStateMessage="false" enabled="false" />
+					<Label text="Status" design="Bold" required="true" />
+					<Select id="statusReligion_cBoxId" showValueStateMessage="false" />
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button icon="sap-icon://save" text="Save"
+				press="onReligionSaveDialogPress" type="Emphasized" />
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" press="onRelgionCancelDialogPress" type="Default" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

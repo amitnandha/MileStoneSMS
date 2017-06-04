@@ -1,0 +1,149 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.FeeConcession"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Page class="sapUiSizeCompact" showHeader="false" enableScrolling="{device>/isPhone}">
+		<content>
+			<Toolbar height="2.5rem">
+				<core:Icon src="sap-icon://filter" class="sapUiTinyMarginBegin" />
+				<Title titleStyle="H5" titleLevel="H5" text="Filter" />
+				<ToolbarSpacer />
+				<Button id="filterExpand_btnId" type="Emphasized"
+					icon="sap-icon://navigation-up-arrow" text="Collapse" class="sapUiTinyMarginEnd"
+					press="onFilterExpandPress" />
+			</Toolbar>
+			<Panel id="filter_pnlId" expandable="false" expanded="true"
+				class="sapUiTinyMarginBottom">
+				<content>
+					<l:VerticalLayout class="sapUiResponsiveMargin">
+						<l:content>
+							<l:HorizontalLayout width="100%"
+								allowWrapping="{device>/isPhone}">
+								<l:content>
+									<HBox class="sapUiTinyMarginBeginEnd">
+										<Input placeholder="First Name" type="Text" id="firstName_txtId"
+											width="14rem" change="onChangeSearch" liveChange="validateOnlyAlphabets" />
+									</HBox>
+									<HBox class="sapUiTinyMarginBeginEnd">
+										<Input placeholder="Last Name" type="Text" id="lastName_txtId"
+											width="14rem" change="onChangeSearch" liveChange="validateOnlyAlphabets" />
+									</HBox>
+									<HBox class="sapUiTinyMarginBeginEnd">
+										<Input placeholder="Roll Number" type="Text" id="rollNumber_txtId"
+											width="14rem" change="onChangeSearch" liveChange="validateOnlyNumbers" />
+									</HBox>
+									<HBox class="sapUiTinyMarginBeginEnd">
+										<Input placeholder="Class" type="Text" id="class_txtId"
+											width="14rem" showValueHelp="true" valueHelpOnly="true"
+											valueHelpRequest="handleClassValueHelp" />
+									</HBox>
+									<HBox class="sapUiTinyMarginBeginEnd">
+										<Input placeholder="Division" type="Text" id="division_txtId"
+											width="14rem" showValueHelp="true" valueHelpOnly="true"
+											valueHelpRequest="handleDivisionValueHelp" />
+									</HBox>
+									<Button type="Reject" tooltip="Reset Filter" icon="sap-icon://reset"
+										press="onResetFilterPress" class="sapUiTinyMarginBeginEnd" />
+								</l:content>
+							</l:HorizontalLayout>
+						</l:content>
+					</l:VerticalLayout>
+				</content>
+			</Panel>
+			<Panel width="auto" class="ResponsiveGridLayout">
+				<content>
+					<Table inset="false" id="hdr_studentFeeConcessionMaster_tblId"
+						visible="{device>/isNoPhone}" showNoData="false">
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="Student" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Roll Number" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="G R No." />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="Class" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="Division" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Concession (Monthly)" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Concession (Yearly)" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Total Concession" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Action" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" width="0.1rem">
+							</Column>
+						</columns>
+					</Table>
+					<ScrollContainer vertical="true">
+						<Table id="studentFeeConcessionMaster_tblId" inset="false"
+							growing="true" growingScrollToLoad="true"
+							updateFinished="setStudentFeeConcessionTableHeight">
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Left">
+									<ObjectIdentifier title="Student" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Roll Number" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="G R No." visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Left">
+									<ObjectIdentifier title="Class" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Left">
+									<ObjectIdentifier title="Division" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Concession (Monthly)"
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Concession (Yearly)"
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Total Concession"
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Action" visible="{device>/isPhone}" />
+								</Column>
+							</columns>
+						</Table>
+					</ScrollContainer>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button type="Emphasized" icon="sap-icon://create-form"
+						placehlder="Fee Concession for Student" text="Create Fee Concession"
+						press="onPressCreateFeeConcession" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

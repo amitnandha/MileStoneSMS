@@ -1,0 +1,83 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog id="dlg_manualAttd" class="sapUiSizeCompact" title="Student Search"
+		icon="sap-icon://sys-find" contentHeight="90%" contentWidth="90%"
+		state="Success" beforeOpen="onStudentSearchFrgBeforeOpen">
+		<content>
+			<Panel expandable="false" expanded="true">
+				<content>
+					<l:VerticalLayout class="sapUiResponsiveMargin">
+						<l:content>
+							<l:HorizontalLayout width="100%"
+								allowWrapping="{device>/isPhone}">
+								<l:content>
+									<HBox class="sapUiSmallMarginEnd">
+										<Input placeholder="First Name" type="Text"
+											id="frg_firstName_txtId" width="12rem" change="onStudentSearchFrgChange" />
+									</HBox>
+									<HBox class="sapUiSmallMarginEnd">
+										<Input placeholder="Last Name" type="Text" id="frg_lastName_txtId"
+											width="12rem" change="onStudentSearchFrgChange" />
+									</HBox>
+									<HBox class="sapUiSmallMarginEnd">
+										<Input placeholder="Roll Number" type="Text"
+											id="frg_rollNumber_txtId" width="12rem" change="onStudentSearchFrgChange" />
+									</HBox>
+									<HBox class="sapUiSmallMarginEnd">
+										<Input placeholder="Class" type="Text" id="frg_class_txtId"
+											width="12rem" showValueHelp="true" valueHelpOnly="true"
+											valueHelpRequest="handleStudentSearchFrgClassValueHelp" />
+									</HBox>
+									<HBox class="sapUiSmallMarginEnd">
+										<Input placeholder="Division" type="Text" id="frg_division_txtId"
+											width="12rem" showValueHelp="true" valueHelpOnly="true"
+											valueHelpRequest="handleStudentSearchFrgDivisionValueHelp" />
+									</HBox>
+									<Button type="Reject" tooltip="Reset Filter" icon="sap-icon://reset"
+										press="onStudentSearchFragmentResetPress" />
+								</l:content>
+							</l:HorizontalLayout>
+							<Table id="frg_studentDtl_tblId" inset="false"
+								class="sapUiSmallMarginTop" mode="MultiSelect" noDataText="No Student Found!!!">
+								<columns>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Left">
+										<ObjectIdentifier title="First Name" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Left">
+										<ObjectIdentifier title="Last Name" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="G. R. No." />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Roll Number" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Class" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Division" />
+									</Column>
+								</columns>
+							</Table>
+						</l:content>
+					</l:VerticalLayout>
+				</content>
+			</Panel>
+		</content>
+		<beginButton>
+			<Button type="Accept" text="Select" icon="sap-icon://action"
+				press="onStudentSearchFrgSelectPress" />
+		</beginButton>
+		<endButton>
+			<Button type="Emphasized" text="Close"
+				press="onStudentSearcgFrgCancelBtnPress" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

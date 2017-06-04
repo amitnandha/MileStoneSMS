@@ -1,0 +1,94 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact sapUiResponsiveContentPadding"
+		icon="sap-icon://search" contentWidth="80%" title="Search User"
+		beforeOpen="onBeforeSchoolStaffSearchDialogOpen" state="Success">
+		<content>
+			<Panel width="auto" expandable="false" expanded="true">
+				<content>
+					<l:VerticalLayout class="sapUiResponsiveMargin">
+						<l:content>
+							<l:HorizontalLayout width="100%"
+								allowWrapping="{device>/isPhone}">
+								<l:content>
+									<VBox class="sapUiTinyMarginBeginEnd">
+										<Label design="Bold" text="Employee No." required="false" />
+										<Input type="Text" id="staffSrchDialog_empNo_txtId"
+											placeholder="Employee No." width="14rem" />
+									</VBox>
+									<VBox class="sapUiTinyMarginBeginEnd">
+										<Label design="Bold" text="First Name" required="false" />
+										<Input type="Text" id="staffSrchDialog_fName_txtId"
+											placeholder="First Name" width="14rem" />
+									</VBox>
+									<VBox class="sapUiTinyMarginBeginEnd">
+										<Label design="Bold" text="Last Name" required="false" />
+										<Input type="Text" id="staffSrchDialog_lName_txtId"
+											placeholder="Last Name" width="14rem" />
+									</VBox>
+								</l:content>
+							</l:HorizontalLayout>
+							<l:HorizontalLayout width="100%"
+								allowWrapping="{device>/isPhone}" class="sapUiSmallMarginTopBottom">
+								<l:content>
+									<VBox class="sapUiTinyMarginBeginEnd">
+										<Label design="Bold" text="Department" required="false" />
+										<Input type="Text" placeholder="Select Department..."
+											showValueStateMessage="false" showValueHelp="true"
+											valueHelpOnly="true" valueHelpRequest="onStaffSearchDialogDepartmentValueHelp"
+											width="14rem" id="staffSrchDialog_department_txtId" />
+									</VBox>
+									<VBox class="sapUiTinyMarginBeginEnd">
+										<Label design="Bold" text="Designation" required="false" />
+										<Input type="Text" placeholder="Select Designation..."
+											showValueStateMessage="false" showValueHelp="true"
+											valueHelpOnly="true" valueHelpRequest="onStaffSearchDialogDesignationValueHelp"
+											width="14rem" id="staffSrchDialog_designation_txtId" />
+									</VBox>
+									<VBox class="sapUiSmallMarginBeginEnd">
+										<Label />
+										<HBox class="floatRight">
+											<Button icon="sap-icon://search" text="Search"
+												placeholder="Search" class="sapUiTinyMarginBeginEnd" type="Emphasized"
+												press="onSchoolStaffSrchDialogSearchBtnPress" />
+											<Button icon="sap-icon://reset" text="Reset"
+												placeholder="Reset" class="sapUiTinyMarginBeginEnd" type="Reject"
+												press="onSchoolStaffSrchDialogResetBtnPress" />
+										</HBox>
+									</VBox>
+								</l:content>
+							</l:HorizontalLayout>
+						</l:content>
+					</l:VerticalLayout>
+					<Table inset="false" showNoData="true" noDataText="No User Found!!!"
+						mode="MultiSelect" id="staffSrchDialog_userDtl_tblId">
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="Employee No." />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="First Name" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="Last Name" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Department" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Designation" />
+							</Column>
+						</columns>
+					</Table>
+				</content>
+			</Panel>
+		</content>
+		<beginButton>
+			<Button text="OK" press="onSchoolStaffSearchOkPress" type="Accept" />
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" press="onSchoolStaffCancelDialogPress"
+				type="Reject" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

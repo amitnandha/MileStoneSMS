@@ -1,0 +1,82 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
+	<Dialog id="dlg_exlUplRslt" class="sapUiSizeCompact" showHeader="true"
+		title="Information" icon="sap-icon://message-information"
+		contentHeight="90%" contentWidth="70%" verticalScrolling="false">
+		<content>
+			<Panel expandable="false" expanded="true" class="ResponsiveGridLayout">
+				<content>
+					<ProgressIndicator id="prgInd_ExcelUploadStatus"
+						class="sapUiSizeCompact sapUiTinyMarginBottom sapUiNoMarginTop"
+						showValue="true" state="Success" width="100%" />
+					<Table id="tab_HdrResStdExcel" inset="false" showNoData="false">
+						<!-- <headerToolbar> -->
+						<!-- <Toolbar> -->
+						<!-- </Toolbar> -->
+						<!-- </headerToolbar> -->
+						<columns>
+							<Column hAlign="Center" minScreenWidth="Tablet"
+								demandPopin="true" width="10%">
+								<ObjectIdentifier title="Status" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Card Number" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="RF - ID" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Card Group" />
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
+								<ObjectIdentifier title="Message" />
+							</Column>
+							<Column id="col_exclScrl" hAlign="Center" minScreenWidth="Tablet"
+								demandPopin="true" width="2%">
+							</Column>
+						</columns>
+					</Table>
+					<ScrollContainer id="scrl_exlUplRslt" vertical="true">
+						<Table id="tab_resStdExcel" inset="false" updateFinished="onExlUplRefresh"
+							growing="true" growingScrollToLoad="true">
+							<!-- <headerToolbar> -->
+							<!-- <Toolbar> -->
+							<!-- <ProgressIndicator id="prgInd_ExcelUploadStatus" -->
+							<!-- class="sapUiSizeCompact" showValue="true" state="Success" /> -->
+							<!-- </Toolbar> -->
+							<!-- </headerToolbar> -->
+							<columns>
+								<Column hAlign="Center" minScreenWidth="Tablet"
+									demandPopin="true" width="10%">
+									<!-- <ObjectIdentifier title="Status" /> -->
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<!-- <ObjectIdentifier title="Card Number" /> -->
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<!-- <ObjectIdentifier title="RF - ID" /> -->
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<!-- <ObjectIdentifier title="Card Group" /> -->
+								</Column>
+								<Column hAlign="Left" minScreenWidth="Tablet"
+									demandPopin="true">
+									<!-- <ObjectIdentifier title="Message" /> -->
+								</Column>
+							</columns>
+						</Table>
+					</ScrollContainer>
+				</content>
+			</Panel>
+		</content>
+		<beginButton>
+		</beginButton>
+		<endButton>
+			<Button text="Close" press="onExcelRsltClose" type="Default"
+				enabled="false" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

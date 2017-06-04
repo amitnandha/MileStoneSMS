@@ -1,0 +1,277 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.userRoles"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Page class="sapUiSizeCompact" enableScrolling="{device>/isPhone}"
+		showHeader="false">
+		<content>
+			<IconTabBar id="userRoles_itbId" select="onUserRolesIconTabBarSelect"
+				class="sapUiResponsiveContentPadding" applyContentPadding="false"
+				upperCase="true" backgroundDesign="Translucent">
+				<items>
+					<IconTabFilter text="User Role" key="userRoles">
+						<Table inset="false" id="hdr_userRoles_tblId" visible="{device>/isNoPhone}"
+							showNoData="false">
+							<headerToolbar>
+								<Toolbar height="3rem">
+									<ToolbarSpacer />
+									<Button type="Emphasized" icon="sap-icon://create" text="Add User Role"
+										class="sapUiSmallMarginEnd" press="onCreateUserRole" />
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Left">
+									<ObjectIdentifier title="Role Name" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Left">
+									<ObjectIdentifier title="Role Description" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Status" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<ObjectIdentifier title="Action" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" width="0.1rem">
+								</Column>
+							</columns>
+						</Table>
+						<ScrollContainer vertical="true">
+							<Table id="userRoles_tblId" inset="false" growing="true"
+								growingScrollToLoad="true" updateFinished="setUserRolesTableHeight">
+								<headerToolbar>
+									<Toolbar height="3rem" visible="{device>/isPhone}">
+										<ToolbarSpacer />
+										<Button type="Emphasized" icon="sap-icon://create"
+											text="Add User Role" class="sapUiSmallMarginEnd" press="onCreateUserRole" />
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Left" popinDisplay="Inline">
+										<ObjectIdentifier title="Role Name" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Left" popinDisplay="Inline">
+										<ObjectIdentifier title="Role Description"
+											visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center" popinDisplay="Inline">
+										<ObjectIdentifier title="Status" visible="{device>/isPhone}" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center" popinDisplay="Inline">
+										<ObjectIdentifier title="Action" visible="{device>/isPhone}" />
+									</Column>
+								</columns>
+							</Table>
+						</ScrollContainer>
+					</IconTabFilter>
+					<IconTabFilter text="Role Assignment" key="assignRoles">
+						<IconTabBar id="assignRoles_itbId" select="onAssignRoleIconTabBarSelect"
+							applyContentPadding="false" upperCase="false" backgroundDesign="Translucent">
+							<items>
+								<IconTabFilter text="Assign Role to Designation"
+									key="assignRoles2Designation">
+									<Table inset="false" id="hdr_assignRole2Designation_tblId"
+										visible="{device>/isNoPhone}" showNoData="false">
+										<columns>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Left">
+												<ObjectIdentifier title="Designation Name" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Left">
+												<ObjectIdentifier title="Descriptions" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Center">
+												<ObjectIdentifier title="Status" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Center">
+												<ObjectIdentifier title="Action" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												width="0.1rem">
+											</Column>
+										</columns>
+									</Table>
+									<ScrollContainer vertical="true">
+										<Table id="assignRole2Designation_tblId" inset="false"
+											growing="true" growingScrollToLoad="true"
+											updateFinished="setAssignRole2DesignationTableHeight">
+											<columns>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Left" popinDisplay="Inline">
+													<ObjectIdentifier title="Designation Name"
+														visible="{device>/isPhone}" />
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Left" popinDisplay="Inline">
+													<ObjectIdentifier title="Description"
+														visible="{device>/isPhone}" />
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Center" popinDisplay="Inline">
+													<ObjectIdentifier title="Status"
+														visible="{device>/isPhone}" />
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Center" popinDisplay="Inline">
+													<ObjectIdentifier title="Action"
+														visible="{device>/isPhone}" />
+												</Column>
+											</columns>
+										</Table>
+									</ScrollContainer>
+								</IconTabFilter>
+								<IconTabFilter text="Assign Role to User Group"
+									key="assignRoles2UserGrp">
+									<Table inset="false" id="hdr_assignRole2UserGrp_tblId"
+										visible="{device>/isNoPhone}" showNoData="false">
+										<headerToolbar>
+											<Toolbar height="3rem" visible="{device>/isNoPhone}">
+												<ToolbarSpacer />
+												<Button type="Emphasized" icon="sap-icon://create"
+													text="Add User Group" class="sapUiSmallMarginEnd" press="onCreateUserGroup" />
+											</Toolbar>
+										</headerToolbar>
+										<columns>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Left">
+												<ObjectIdentifier title="User Group Name" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Left">
+												<ObjectIdentifier title="Description" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Center">
+												<ObjectIdentifier title="Status" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Center">
+												<ObjectIdentifier title="Action" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												width="0.1rem">
+											</Column>
+										</columns>
+									</Table>
+									<ScrollContainer vertical="true">
+										<Table id="assignRole2UserGrp_tblId" inset="false"
+											growing="true" growingScrollToLoad="true"
+											updateFinished="setAssignRole2UserGrpTableHeight">
+											<headerToolbar>
+												<Toolbar height="3rem" visible="{device>/isPhone}">
+													<ToolbarSpacer />
+													<Button type="Emphasized" icon="sap-icon://create"
+														text="Add User Group" class="sapUiSmallMarginEnd" press="onCreateUserGroup" />
+												</Toolbar>
+											</headerToolbar>
+											<columns>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Left" popinDisplay="Inline">
+													<ObjectIdentifier title="User Group Name"
+														visible="{device>/isPhone}" />
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Left" popinDisplay="Inline">
+													<ObjectIdentifier title="Description"
+														visible="{device>/isPhone}" />
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Center" popinDisplay="Inline">
+													<ObjectIdentifier title="Status"
+														visible="{device>/isPhone}" />
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Center" popinDisplay="Inline">
+													<ObjectIdentifier title="Action"
+														visible="{device>/isPhone}" />
+												</Column>
+											</columns>
+										</Table>
+									</ScrollContainer>
+								</IconTabFilter>
+								<IconTabFilter text="Assign Role to User" key="assignRoles2User"
+									visible="false">
+									<Table inset="false" id="hdr_assignRole2User_tblId"
+										visible="{device>/isNoPhone}" showNoData="false">
+										<columns>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Left">
+												<ObjectIdentifier title="First Name" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Left">
+												<ObjectIdentifier title="Last Name" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Left">
+												<ObjectIdentifier title="Department" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Left">
+												<ObjectIdentifier title="Designation" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Center">
+												<ObjectIdentifier title="Action" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												width="0.1rem">
+											</Column>
+										</columns>
+									</Table>
+									<ScrollContainer vertical="true">
+										<Table id="assignRole2User_tblId" inset="false" growing="true"
+											growingScrollToLoad="true" updateFinished="setAssignRole2UserTableHeight">
+											<columns>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Left" popinDisplay="Inline">
+													<ObjectIdentifier title="First Name"
+														visible="{device>/isPhone}" />
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Left" popinDisplay="Inline">
+													<ObjectIdentifier title="Last Name"
+														visible="{device>/isPhone}" />
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Left" popinDisplay="Inline">
+													<ObjectIdentifier title="Department"
+														visible="{device>/isPhone}" />
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Left" popinDisplay="Inline">
+													<ObjectIdentifier title="Designation"
+														visible="{device>/isPhone}" />
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true"
+													hAlign="Center" popinDisplay="Inline">
+													<ObjectIdentifier title="Action"
+														visible="{device>/isPhone}" />
+												</Column>
+											</columns>
+										</Table>
+									</ScrollContainer>
+								</IconTabFilter>
+							</items>
+						</IconTabBar>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+		<footer>
+			<Bar>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,80 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.FeeStructure"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page class="sapUiSizeCompact" enableScrolling="{device>/isPhone}"
+		showHeader="false">
+		<content>
+			<Panel width="auto" class="ResponsiveGridLayout">
+				<headerToolbar>
+					<Toolbar height="3rem">
+						<ToolbarSpacer />
+						<Button type="Emphasized" icon="sap-icon://create" text="Fee Structure Design"
+							class="sapUiSmallMarginEnd" press="onPressFeeDesign" />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<Table inset="false" id="hdr_classFeeStructureMaster_tblId"
+						visible="{device>/isNoPhone}" showNoData="false">
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+								<ObjectIdentifier title="Class" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Amount Payable (Monthly)" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Amount Payable (Yearly)" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Total Amount" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<ObjectIdentifier title="Action" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" width="0.1rem">
+							</Column>
+						</columns>
+					</Table>
+					<ScrollContainer vertical="true">
+						<Table id="classFeeStructureMaster_tblId" inset="false"
+							growing="true" growingScrollToLoad="true" updateFinished="setFeeStructureTableHeight">
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Left" popinDisplay="Inline">
+									<ObjectIdentifier title="Class" visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center" popinDisplay="Inline">
+									<ObjectIdentifier title="Amount Payable (Monthly)"
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center" popinDisplay="Inline">
+									<ObjectIdentifier title="Amount Payable (Yearly)"
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center" popinDisplay="Inline">
+									<ObjectIdentifier title="Total Amount"
+										visible="{device>/isPhone}" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center" popinDisplay="Inline">
+									<ObjectIdentifier title="Action" visible="{device>/isPhone}" />
+								</Column>
+							</columns>
+						</Table>
+					</ScrollContainer>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button type="Emphasized" icon="sap-icon://create-form"
+						text="Create Fee Structure" press="onPressCreateFeeStructure" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

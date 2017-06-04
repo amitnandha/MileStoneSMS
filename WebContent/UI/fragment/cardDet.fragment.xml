@@ -1,0 +1,51 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiSizeCompact" showHeader="true" title="Card Details">
+		<content>
+			<f:SimpleForm minWidth="1024" maxContainerCols="1"
+				editable="true" layout="ResponsiveGridLayout" labelSpanL="4"
+				labelSpanM="4" emptySpanL="4" emptySpanM="4" columnsL="2" columnsM="2"
+				class="sapUiSizeCompact">
+				<f:content>
+					<Label id="lb_crdNo" text="Card Number" design="Bold"
+						required="false"></Label>
+					<Input id="cardNo_txtId" placeholder="Enter Card Number ..."
+						liveChange="valAlfaNum" showValueStateMessage="false" enabled="false" />
+
+					<Label id="lb_rfid" text="RF-Id/Unique Id" design="Bold"
+						required="true"></Label>
+					<Input id="rfId_txtId" placeholder="Enter RF-Id/Unique Id ..."
+						liveChange="valAlfaNum" showValueStateMessage="false" />
+					<!-- <Button id="btn_rfidDevice" icon="sap-icon://bar-code" press="onRFIDdevice" -->
+					<!-- type="Emphasized" tooltip="Use RF-ID Device"> -->
+					<!-- <layoutData> -->
+					<!-- <l:GridData span="L1 M1 S1" /> -->
+					<!-- </layoutData> -->
+					<!-- </Button> -->
+
+					<Label id="lb_desc" text="Descriptions" design="Bold"
+						required="false"></Label>
+					<TextArea id="desc_txtId" placeholder="Enter Card Descriptions"
+						showValueStateMessage="false" />
+
+					<Label id="lb_crdGrp" text="Card Group" design="Bold"
+						required="true"></Label>
+					<Select id="cardGroup_cBoxId" change="valueStateNone"
+						showValueStateMessage="false" />
+
+					<Label id="lb_crdStatus" text="Status" design="Bold"
+						required="true"></Label>
+					<Select id="status_cBoxId" change="valueStateNone"
+						showValueStateMessage="false" />
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button icon="sap-icon://save" text="Save" press="onCmSave"
+				type="Default" />
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" press="onCmCancel" type="Default" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

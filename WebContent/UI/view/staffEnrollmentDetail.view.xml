@@ -1,0 +1,188 @@
+<core:View controllerName="com.itec.sams.controller.staffEnrollmentDetail"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:suite="sap.suite.ui.commons" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page class="sapUiSizeCompact" showHeader="false">
+		<content>
+			<Panel expanded="true" expandable="false">
+				<headerToolbar>
+					<Toolbar height="3rem">
+						<core:Icon src="sap-icon://person-placeholder" size="1.5rem" />
+						<Title text="Personal Detail" titleStyle="H4" level="H4" />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<f:SimpleForm minWidth="1024" maxContainerCols="2"
+						editable="true" layout="ResponsiveGridLayout" labelSpanL="4"
+						labelSpanM="4" emptySpanL="1" emptySpanM="1" columnsL="2"
+						columnsM="2" class="editableForm">
+						<f:content>
+							<core:Title />
+							<Label text="First Name" design="Bold" required="true"></Label>
+							<Input id="fName_txtId" type="Text" placeholder="Enter First Name..."
+								liveChange="valAlfabet" showValueStateMessage="false" />
+							<core:Title />
+							<Label text="Last Name" design="Bold" required="true"></Label>
+							<Input id="lName_txtId" type="Text" placeholder="Enter Last Name ..."
+								liveChange="valAlfabet" showValueStateMessage="false" />
+							
+							<core:Title />
+							<Label text="Employee No." design="Bold" required="true"></Label>
+							<Input id="empNo_txtId" type="Text" placeholder="Enter Employee No. ..."
+								liveChange="valAlfabet" showValueStateMessage="false" />
+							<Label id="lb_dob" text="Date of Birth" design="Bold"
+								required="true"></Label>
+							<DatePicker id="dob_txtId" valueFormat="dd-MM-yyyy"
+								displayFormat="dd-MM-yyyy" placeholder="Select Date of Birth..."
+								change="valueStateNone" showValueStateMessage="false" />
+							<Label text="Card Number" design="Bold" required="true"></Label>
+							<Input id="cardNumber_txtId" type="Text" placeholder="Select Card Number ..."
+								showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onCardNumberValueHelp"
+								showValueStateMessage="false" />
+							<Label text="PAN No." design="Bold" required="true"></Label>
+							<Input placeholder="Enter PAN No..." id="panNo_txtId"
+								visible="true" showValueStateMessage="false" />
+							<Label text="Mobile Number" design="Bold" required="true"></Label>
+							<Input id="mobileNumber_txtId" type="Text"
+								placeholder="Enter Mobile Number..." liveChange="valNumber"
+								maxLength="10" showValueStateMessage="false" />
+							<Label text="Alternate Number" design="Bold" required="false"></Label>
+							<Input id="alternateNumber_txtId" type="Text"
+								placeholder="Enter Alternate Number..." liveChange="valNumber"
+								maxLength="10" showValueStateMessage="false" />
+							<Label text="Email Id" design="Bold" required="true"></Label>
+							<Input id="email_txtId" type="Text" placeholder="Enter Email Id..."
+								change="valEmail" liveChange="valEmailChar"
+								showValueStateMessage="false" />
+							<Label text="Alternate Email Id" design="Bold" required="false"></Label>
+							<Input id="alternateEmailId_txtId" type="Text"
+								placeholder="Enter Alternate Email Id" change="valEmail"
+								liveChange="valEmailChar" showValueStateMessage="false" />
+							<core:Title />
+							<Label text="Gender" design="Bold" required="true"></Label>
+							<Select id="gender_selId" placeholder="Select Gender..."
+								showValueStateMessage="false" change="valueStateNone" />
+							<Label text="Department" design="Bold" required="true"></Label>
+							<Input placeholder="Select Department" id="department_txtId"
+								visible="true" showValueHelp="true" valueHelpOnly="true"
+								valueHelpRequest="onDepartmentValueHelp" showValueStateMessage="false" />
+							<Label text="Designation" design="Bold" required="true"></Label>
+							<Input placeholder="Select Designation..." id="designation_txtId"
+								visible="true" showValueHelp="true" valueHelpOnly="true"
+								valueHelpRequest="onDesignationValueHelp" showValueStateMessage="false" />
+							<Label text="Aadhar No." design="Bold" required="true"></Label>
+							<Input placeholder="Enter Aadhaar No..." id="aadhaarNo_txtId"
+								visible="true" showValueStateMessage="false" />
+							<Label text="User Name" design="Bold" required="true"></Label>
+							<Input id="userName_txtId" type="Text" placeholder="Enter User Name..."
+								change="valEmail" liveChange="valEmailChar"
+								showValueStateMessage="false" />
+							<Label text="Password" design="Bold" required="true"></Label>
+							<Input id="password_txtId" type="Password" placeholder="Enter Password..."
+								change="valEmail" liveChange="valEmailChar"
+								showValueStateMessage="false" />
+							<Label text="Confirm Password" design="Bold" required="true"></Label>
+							<Input id="cnfrmPassword_txtId" type="Password"
+								placeholder="Enter Confirm Password..." change="valEmail"
+								liveChange="valEmailChar" showValueStateMessage="false" />
+							<Label text="Status" design="Bold" required="true"></Label>
+							<Select id="status_selId" placeholder="Select Status..."
+								showValueStateMessage="false" />
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</Panel>
+			<Panel expanded="true" expandable="false">
+				<headerToolbar>
+					<Toolbar height="3rem">
+						<core:Icon src="sap-icon://addresses" size="1.5rem" />
+						<Title text="Communication Detail" titleStyle="H4" level="H4" />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<f:SimpleForm minWidth="1024" maxContainerCols="2"
+						editable="true" layout="ResponsiveGridLayout" labelSpanL="4"
+						labelSpanM="1" emptySpanL="1" emptySpanM="1" columnsL="2"
+						columnsM="1" class="editableForm">
+						<f:toolbar>
+							<Toolbar>
+								<Title titleStyle="H5" level="H5" text="Permanent Address" />
+								<ToolbarSpacer />
+							</Toolbar>
+						</f:toolbar>
+						<f:content>
+							<core:Title />
+							<Label text="Street Address" design="Bold" required="true" />
+							<TextArea id="perm_streetAddress_txtId" placeholder="Enter Street Address..."
+								liveChange="valueStateNone" showValueStateMessage="false" />
+							<Label text="Locality / Landmark" design="Bold" required="true" />
+							<Input id="perm_locality_txtId" type="Text"
+								placeholder="Enter Locality/Landmark ..." liveChange="valueStateNone"
+								showValueStateMessage="false" />
+							<core:Title />
+							<Label text="State" design="Bold" required="true" />
+							<Input id="perm_state_txtId" type="Text" placeholder="Select State ..."
+								showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onPermStateValueHelp"
+								showValueStateMessage="false" />
+							<Label text="City" design="Bold" required="true" />
+							<Input id="perm_city_txtId" type="Text" placeholder="Select City ..."
+								showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onPermCityValueHelp"
+								showValueStateMessage="false" />
+							<Label text="Pincode" design="Bold" required="true" />
+							<Input id="perm_pinCode_txtId" placeholder="Enter Pincode ..."
+								liveChange="valNumber" maxLength="10" showValueStateMessage="false" />
+						</f:content>
+					</f:SimpleForm>
+					<f:SimpleForm minWidth="1024" maxContainerCols="2"
+						editable="true" layout="ResponsiveGridLayout" labelSpanL="4"
+						labelSpanM="3" emptySpanL="1" emptySpanM="1" columnsL="2"
+						columnsM="2" class="editableForm">
+						<f:toolbar>
+							<Toolbar>
+								<Title titleStyle="H5" level="H5" text="Correspondance Address" />
+								<ToolbarSpacer />
+								<CheckBox id="sameAsPermanent_cBoxId" text="Same as Permanent Address"
+									select="onSameAsPermanentSelect" />
+							</Toolbar>
+						</f:toolbar>
+						<f:content>
+							<core:Title />
+							<Label id="lb_street" text="Street Address" design="Bold"
+								required="true"></Label>
+							<TextArea id="streetAddress_txtId" placeholder="Enter Street Address..."
+								liveChange="valueStateNone" showValueStateMessage="false" />
+							<Label id="lb_lMark" text="Locality/Landmark" design="Bold"
+								required="true"></Label>
+							<Input id="locality_txtId" type="Text"
+								placeholder="Enter Locality/Landmark ..." liveChange="valueStateNone"
+								showValueStateMessage="false" />
+							<core:Title />
+							<Label id="lb_state" text="State" design="Bold" required="true"></Label>
+							<Input id="state_txtId" type="Text" placeholder="Select State ..."
+								showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onCorressStateValueHelp"
+								showValueStateMessage="false" />
+							<Label id="lb_city" text="City" design="Bold" required="true"></Label>
+							<Input id="city_txtId" type="Text" placeholder="Select City ..."
+								showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onCorressCityValueHelp"
+								showValueStateMessage="false" />
+							<Label id="lb_pinCode" text="Pincode" design="Bold"
+								required="true"></Label>
+							<Input id="pinCode_txtId" placeholder="Enter Pincode ..."
+								liveChange="valNumber" maxLength="10" showValueStateMessage="false" />
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="sumit_staffEnrollDtl_btnId" icon="sap-icon://save"
+						text="Save" type="Accept" press="onSubmit" />
+					<Button icon="sap-icon://cancel" text="Cancel" type="Reject"
+						press="onNavBack" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

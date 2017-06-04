@@ -1,0 +1,94 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.itec.sams.controller.FeeConcessionDetail"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Page class="sapUiSizeCompact" showHeader="false">
+		<content>
+			<Panel id="studentDtl_pnlId" expandable="false" expanded="true">
+				<headerToolbar>
+					<Toolbar height="2.5rem">
+						<ToolbarSpacer />
+						<Button id="studentFind_btnId" icon="sap-icon://sys-find"
+							text="Find Student" type="Emphasized" press="onFindStudentButtonPress" />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<l:VerticalLayout class="sapUiResponsiveMargin">
+						<l:content>
+							<Table id="studentDtl_tblId" inset="false" width="100%"
+								noDataText="No Student !!!">
+								<columns>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Left">
+										<ObjectIdentifier title="Student Name" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="G. R. No." />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Roll Number" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Class" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center">
+										<ObjectIdentifier title="Division" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true"
+										hAlign="Center" width="3rem"
+										visible="{= ${contextModel>mode} === 'DISPLAY' || ${contextModel>mode} === 'EDIT'?false:true}" />
+								</columns>
+							</Table>
+							<Panel id="studentConcessionDtl_pnlId" expandable="false"
+								expanded="true" visible="false" class="sapUiSmallMarginTop">
+								<headerToolbar>
+									<Toolbar height="2.5rem">
+										<ToolbarSpacer />
+										<Button id="feeConcessionTblAddRow_btnId" icon="sap-icon://sys-add"
+											text="Add Row" type="Emphasized" press="onStudentConcessionDtlAddRowPress" />
+									</Toolbar>
+								</headerToolbar>
+								<content>
+									<Table id="studentConcessionDtl_tblId" inset="false"
+										width="100%">
+										<columns>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Center" width="3rem">
+												<ObjectIdentifier title="Sr. No." />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Left">
+												<ObjectIdentifier title="Fee Label Name" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Center">
+												<ObjectIdentifier title="Concession Amount" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"
+												hAlign="Right" width="3rem">
+											</Column>
+										</columns>
+									</Table>
+								</content>
+							</Panel>
+						</l:content>
+					</l:VerticalLayout>
+				</content>
+			</Panel>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="submit_CON_btnId" icon="sap-icon://save" type="Accept"
+						text="Submit" press="onSubmitPress" />
+					<Button icon="sap-icon://cancel" type="Reject" press="onNavBack"
+						text="Cancel" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

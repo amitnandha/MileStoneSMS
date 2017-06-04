@@ -1,0 +1,11 @@
+{	
+	"listItems":{
+		"results":[{
+			"itemId":1,
+			"itemTitle":"Fee Report",
+			"itemIcon":"sap-icon://simulate",
+			"itemAction":"FeeReport",
+			"isVisible":true
+		}]
+	}
+}
