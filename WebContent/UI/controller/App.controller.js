@@ -1,5 +1,3 @@
-/*amit adding comment for testing commit*/
-
 jQuery.sap.require("sap.m.MessageBox");
 jQuery.sap.require("com.itec.sams.util.GetPostApiCall");
 sap.ui.controller("com.itec.sams.controller.App", {

@@ -64,8 +64,8 @@ sap.ui.core.mvc.Controller.extend("com.itec.sams.controller.FeeStructureDetail",
     	 }
     },
     initialLoad: function() {
-//    	FSADE_context.getView().byId("classFeeStruct_txtId").removeAllCustomData();
-//    	FSADE_context.getView().byId("classFeeStruct_txtId").setValue("");
+    	FSADE_context.getView().byId("classFeeStruct_txtId").removeAllCustomData();
+    	FSADE_context.getView().byId("classFeeStruct_txtId").setValue("");
         var contextModelData = sap.ui.getCore().getModel("contextModel").getData();
         var query = "FeeStructureDetail4ClassGet?schoolId=4&feeStructureId=0";
         FSADE_context.getView().byId("totalAmountPayable_txtId").setText(" " + parseInt("0").toFixed(2));
